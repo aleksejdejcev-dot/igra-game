@@ -1,0 +1,1069 @@
+{
+  "books": [
+    {
+      "id": "boris-godunov-libretto-musorgskii",
+      "title": "Борис Годунов - либретто Мусоргский",
+      "chapters": [
+        {
+          "id": "boris-godunov-libretto-musorgskii-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-002",
+          "title": "Пролог — Картина первая",
+          "neededInGame": false
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-003",
+          "title": "Картина вторая",
+          "neededInGame": false
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-004",
+          "title": "Действие первое — Картина первая",
+          "neededInGame": false
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-005",
+          "title": "Картина вторая",
+          "neededInGame": true
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-006",
+          "title": "Действие второе",
+          "neededInGame": false
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-007",
+          "title": "Действие третье — Картина первая",
+          "neededInGame": false
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-008",
+          "title": "Картина вторая",
+          "neededInGame": false
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-009",
+          "title": "Действие четвертое — Картина первая",
+          "neededInGame": false
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-010",
+          "title": "Картина вторая",
+          "neededInGame": false
+        },
+        {
+          "id": "boris-godunov-libretto-musorgskii-011",
+          "title": "Картина третья",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "vasilisa-melenteva-1",
+      "title": "Василиса Мелентьева-1",
+      "chapters": [
+        {
+          "id": "vasilisa-melenteva-1-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-1-002",
+          "title": "ДЕЙСТВИЕ ПЕРВОЕ — СЦЕНА ПЕРВАЯ",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-1-003",
+          "title": "ЯВЛЕНИЕ ТРЕТЬЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-1-004",
+          "title": "ЯВЛЕНИЕ ЧЕТВЕРТОЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-1-005",
+          "title": "ЯВЛЕНИЕ ПЯТОЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-1-006",
+          "title": "ЯВЛЕНИЕ ШЕСТОЕ",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "vasilisa-melenteva-2",
+      "title": "Василиса Мелентьева-2",
+      "chapters": [
+        {
+          "id": "vasilisa-melenteva-2-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-2-002",
+          "title": "ДЕЙСТВИЕ ЧЕТВЕРТОЕ — ЯВЛЕНИЕ ЧЕТВЕРТОЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-2-003",
+          "title": "Явление восьмое — ЯВЛЕНИЕ ВОСЬМОЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-2-004",
+          "title": "ЯВЛЕНИЕ ДЕВЯТОЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-2-005",
+          "title": "ЯВЛЕНИЕ ДЕСЯТОЕ",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "vasilisa-melenteva-3",
+      "title": "Василиса Мелентьева-3",
+      "chapters": [
+        {
+          "id": "vasilisa-melenteva-3-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-3-002",
+          "title": "ДЕЙСТВИЕ ПЯТОЕ — ЯВЛЕНИЕ ЧЕТВЕРТОЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "vasilisa-melenteva-3-003",
+          "title": "ЯВЛЕНИЕ ПЯТОЕ",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "k-istorii-kartiny-repina",
+      "title": "К истории картины Репина",
+      "chapters": [
+        {
+          "id": "k-istorii-kartiny-repina-001",
+          "title": "Текст",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "karamzin-otryvki-pro-groznogo-1",
+      "title": "Карамзин отрывки про Грозного-1",
+      "chapters": [
+        {
+          "id": "karamzin-otryvki-pro-groznogo-1-001",
+          "title": "Текст",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "karamzin-otryvki-pro-groznogo-2",
+      "title": "Карамзин отрывки про Грозного-2",
+      "chapters": [
+        {
+          "id": "karamzin-otryvki-pro-groznogo-2-001",
+          "title": "Текст",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "karamzin-otryvki-pro-groznogo-3",
+      "title": "Карамзин отрывки про Грозного-3",
+      "chapters": [
+        {
+          "id": "karamzin-otryvki-pro-groznogo-3-001",
+          "title": "Текст",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "karamzin-otryvki-pro-groznogo-4",
+      "title": "Карамзин отрывки про Грозного-4",
+      "chapters": [
+        {
+          "id": "karamzin-otryvki-pro-groznogo-4-001",
+          "title": "Текст",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "karamzin-otryvki-pro-groznogo-5",
+      "title": "Карамзин отрывки про Грозного-5",
+      "chapters": [
+        {
+          "id": "karamzin-otryvki-pro-groznogo-5-001",
+          "title": "Текст",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "karamzin-otryvki-pro-groznogo-6",
+      "title": "Карамзин отрывки про Грозного-6",
+      "chapters": [
+        {
+          "id": "karamzin-otryvki-pro-groznogo-6-001",
+          "title": "Текст",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "karamzin-otryvki-pro-groznogo-7",
+      "title": "Карамзин отрывки про Грозного-7",
+      "chapters": [
+        {
+          "id": "karamzin-otryvki-pro-groznogo-7-001",
+          "title": "Текст",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "karamzin-otryvki-pro-groznogo-8",
+      "title": "Карамзин отрывки про Грозного-8",
+      "chapters": [
+        {
+          "id": "karamzin-otryvki-pro-groznogo-8-001",
+          "title": "Текст",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "karamzin-otryvki-pro-groznogo-9",
+      "title": "Карамзин отрывки про Грозного-9",
+      "chapters": [
+        {
+          "id": "karamzin-otryvki-pro-groznogo-9-001",
+          "title": "Текст",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "karamzin-istoriya-tom-ix",
+      "title": "Карамзин_История_том_IX",
+      "chapters": [
+        {
+          "id": "karamzin-istoriya-tom-ix-001",
+          "title": "Глава I. Продолжение царствования Иоанна Грозного. Годы 1560—1564",
+          "neededInGame": false
+        },
+        {
+          "id": "karamzin-istoriya-tom-ix-002",
+          "title": "Глава II. Продолжение царствования Иоанна Грозного. Годы 1563—1569",
+          "neededInGame": true
+        },
+        {
+          "id": "karamzin-istoriya-tom-ix-003",
+          "title": "Глава III. Продолжение царствования Иоанна Грозного. Годы 1569—1572",
+          "neededInGame": true
+        },
+        {
+          "id": "karamzin-istoriya-tom-ix-004",
+          "title": "Глава IV. Продолжение царствования Иоанна Грозного. Годы 1572—1577",
+          "neededInGame": true
+        },
+        {
+          "id": "karamzin-istoriya-tom-ix-005",
+          "title": "Глава V. Продолжение царствования Иоанна Грозного. Годы 1577—1582",
+          "neededInGame": true
+        },
+        {
+          "id": "karamzin-istoriya-tom-ix-006",
+          "title": "Глава VI. Первое завоевание Сибири. Годы 1581—1584",
+          "neededInGame": false
+        },
+        {
+          "id": "karamzin-istoriya-tom-ix-007",
+          "title": "Глава VII. Продолжение царствования Иоанна Грозного. Годы 1582—1584",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "karamzin-istoriya-tom-viii",
+      "title": "Карамзин_История_том_VIII",
+      "chapters": [
+        {
+          "id": "karamzin-istoriya-tom-viii-001",
+          "title": "Глава I. Великий князь и царь Иоанн IV Васильевич. Годы 1533—1538",
+          "neededInGame": false
+        },
+        {
+          "id": "karamzin-istoriya-tom-viii-002",
+          "title": "Глава II. Продолжение государствования Иоанна IV. Годы 1538—1546",
+          "neededInGame": false
+        },
+        {
+          "id": "karamzin-istoriya-tom-viii-003",
+          "title": "Глава III. Продолжение государствования Иоанна IV. Годы 1546—1552",
+          "neededInGame": true
+        },
+        {
+          "id": "karamzin-istoriya-tom-viii-004",
+          "title": "Глава IV. Продолжение государствования Иоанна IV. Год 1552",
+          "neededInGame": true
+        },
+        {
+          "id": "karamzin-istoriya-tom-viii-005",
+          "title": "Глава V. Продолжение государствования Иоанна IV. Годы 1552—1560",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "knyaz-serebryanyi1",
+      "title": "Князь Серебряный1",
+      "chapters": [
+        {
+          "id": "knyaz-serebryanyi1-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "knyaz-serebryanyi1-002",
+          "title": "Глава 6. Приём",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "knyaz-serebryanyi2",
+      "title": "Князь Серебряный2",
+      "chapters": [
+        {
+          "id": "knyaz-serebryanyi2-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "knyaz-serebryanyi2-002",
+          "title": "Глава 11. Ночное шествие",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "knyaz-serebryanyi3",
+      "title": "Князь Серебряный3",
+      "chapters": [
+        {
+          "id": "knyaz-serebryanyi3-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "knyaz-serebryanyi3-002",
+          "title": "Глава 20. Весёлые люди",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "knyaz-serebryanyi4",
+      "title": "Князь Серебряный4",
+      "chapters": [
+        {
+          "id": "knyaz-serebryanyi4-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "knyaz-serebryanyi4-002",
+          "title": "Глава 34. Шутовской кафтан",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "lazhechnikov-oprichnik",
+      "title": "Лажечников_Опричник",
+      "chapters": [
+        {
+          "id": "lazhechnikov-oprichnik-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-002",
+          "title": "ДЕЙСТВУЮЩИЕ ЛИЦА",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-003",
+          "title": "ДЕЙСТВИЕ I — Явление I",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-004",
+          "title": "Явление II",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-005",
+          "title": "Явление III",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-006",
+          "title": "Явление IV",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-007",
+          "title": "Явление V",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-008",
+          "title": "Явление VI",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-009",
+          "title": "Явление VII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-010",
+          "title": "Явление VIII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-011",
+          "title": "Явление IX",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-012",
+          "title": "Явление X",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-013",
+          "title": "Явление XI",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-014",
+          "title": "Явление XII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-015",
+          "title": "ДЕЙСТВИЕ II — Явление I",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-016",
+          "title": "Явление II",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-017",
+          "title": "Явление III",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-018",
+          "title": "Явление IV",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-019",
+          "title": "Явление V",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-020",
+          "title": "Явление VI",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-021",
+          "title": "Явление VII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-022",
+          "title": "Явление VIII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-023",
+          "title": "ДЕЙСТВИЕ III — Явление I",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-024",
+          "title": "Явление II",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-025",
+          "title": "Явление III",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-026",
+          "title": "Явление IV",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-027",
+          "title": "Явление V",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-028",
+          "title": "Явление VI",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-029",
+          "title": "Явление VII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-030",
+          "title": "Явление VIII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-031",
+          "title": "ДЕЙСТВИЕ IV — Явление I",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-032",
+          "title": "Явление II",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-033",
+          "title": "Явление III",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-034",
+          "title": "Явление IV",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-035",
+          "title": "Явление V",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-036",
+          "title": "Явление VI",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-037",
+          "title": "Явление VII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-038",
+          "title": "Явление VIII *",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-039",
+          "title": "Явление IX",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-040",
+          "title": "Явление X",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-041",
+          "title": "Явление XI",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-042",
+          "title": "Явление XII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-043",
+          "title": "ДЕЙСТВИЕ V",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-044",
+          "title": "Явление I",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-045",
+          "title": "Явление II",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-046",
+          "title": "Явление III",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-047",
+          "title": "Явление IV",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-048",
+          "title": "Явление V",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-049",
+          "title": "Явление VI",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-050",
+          "title": "Явление VII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-051",
+          "title": "Явление VIII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-052",
+          "title": "Явление IX",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-053",
+          "title": "Явление X",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-054",
+          "title": "Явление XI",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-055",
+          "title": "Явление XII",
+          "neededInGame": false
+        },
+        {
+          "id": "lazhechnikov-oprichnik-056",
+          "title": "Явление XIII и последнее",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "lermontov-kupets-kalashnikov-vyrezka",
+      "title": "Лермонтов Купец Калашников вырезка",
+      "chapters": [
+        {
+          "id": "lermontov-kupets-kalashnikov-vyrezka-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "lermontov-kupets-kalashnikov-vyrezka-002",
+          "title": "II",
+          "neededInGame": false
+        },
+        {
+          "id": "lermontov-kupets-kalashnikov-vyrezka-003",
+          "title": "III",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "oprichnik-libretto-chaikovskii",
+      "title": "Опричник - либретто Чайковский",
+      "chapters": [
+        {
+          "id": "oprichnik-libretto-chaikovskii-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-002",
+          "title": "Действие первое",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-003",
+          "title": "[N. 1 Сцена угощения]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-004",
+          "title": "[N. 2 Хор девушек и песня Натальи]",
+          "neededInGame": true
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-005",
+          "title": "[N. 3 Сцена и хор]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-006",
+          "title": "[N. 4 Хор и сцена]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-007",
+          "title": "[N. 5 Речитатив и ариозо]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-008",
+          "title": "[N. 6 Ариозо и хор]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-009",
+          "title": "Действие второе",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-010",
+          "title": "Картина первая",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-011",
+          "title": "[N. 7 Сцена и ария]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-012",
+          "title": "[N. 8 Сцена и дуэт]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-013",
+          "title": "Картина вторая",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-014",
+          "title": "[N. 9 Прелюдия, сцена и финал]",
+          "neededInGame": true
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-015",
+          "title": "Действие третье",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-016",
+          "title": "[N. 10 Хор народа]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-017",
+          "title": "[N. 11 Речитатив, хор мальчиков и дуэт]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-018",
+          "title": "[N. 12 Сцена и ариозо]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-019",
+          "title": "[N. 13 Финал]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-020",
+          "title": "Действие четвертое",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-021",
+          "title": "[N. 14 Свадебный хор]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-022",
+          "title": "[N. 15 Пляски опричников и женщин]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-023",
+          "title": "[N. 16 Речитатив, хор и дуэт]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-024",
+          "title": "[N. 17 Хор и сцена]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-025",
+          "title": "[N. 18 Сцена и квартет с хором]",
+          "neededInGame": false
+        },
+        {
+          "id": "oprichnik-libretto-chaikovskii-026",
+          "title": "[N. 19 Заключительная сцена]",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "pushkin-boris-godunov",
+      "title": "Пушкин_Борис_Годунов",
+      "chapters": [
+        {
+          "id": "pushkin-boris-godunov-001",
+          "title": "КРЕМЛЕВСКИЕ ПАЛАТЫ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-002",
+          "title": "КРАСНАЯ ПЛОЩАДЬ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-003",
+          "title": "КРЕМЛЕВСКИЕ ПАЛАТЫ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-004",
+          "title": "НОЧЬ. КЕЛЬЯ В ЧУДОВОМ МОНАСТЫРЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-005",
+          "title": "ПАЛАТЫ ПАТРИАРХА",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-006",
+          "title": "ЦАРСКИЕ ПАЛАТЫ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-007",
+          "title": "КОРЧМА НА ЛИТОВСКОЙ ГРАНИЦЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-008",
+          "title": "МОСКВА. ДОМ ШУЙСКОГО",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-009",
+          "title": "ЦАРСКИЕ ПАЛАТЫ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-010",
+          "title": "КРАКОВ. ДОМ ВИШНЕВЕЦКОГО",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-011",
+          "title": "ЗАМОК ВОЕВОДЫ МНИШКА В САМБОРЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-012",
+          "title": "НОЧЬ. САД. ФОНТАН",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-013",
+          "title": "ГРАНИЦА ЛИТОВСКАЯ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-014",
+          "title": "ЦАРСКАЯ ДУМА",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-015",
+          "title": "РАВНИНА БЛИЗ НОВГОРОДА-СЕВЕРСКОГО",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-016",
+          "title": "ПЛОЩАДЬ ПЕРЕД СОБОРОМ В МОСКВЕ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-017",
+          "title": "СЕВСК",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-018",
+          "title": "ЛЕС",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-019",
+          "title": "МОСКВА. ЦАРСКИЕ ПАЛАТЫ",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-020",
+          "title": "СТАВКА",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-021",
+          "title": "ЛОБНОЕ МЕСТО",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-022",
+          "title": "КРЕМЛЬ. ДОМ БОРИСОВ. СТРАЖА У КРЫЛЬЦА",
+          "neededInGame": false
+        },
+        {
+          "id": "pushkin-boris-godunov-023",
+          "title": "ДЕВИЧЬЕ ПОЛЕ НОВОДЕВИЧИЙ МОНАСТЫРЬ",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "solovev-ob-ivane-groznom",
+      "title": "Соловьев об Иване Грозном",
+      "chapters": [
+        {
+          "id": "solovev-ob-ivane-groznom-001",
+          "title": "Текст",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "tolstoiak-vasilii-shibanov",
+      "title": "ТолстойАК Василий Шибанов",
+      "chapters": [
+        {
+          "id": "tolstoiak-vasilii-shibanov-001",
+          "title": "Текст",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "tolstoiak-knyaz-repnin",
+      "title": "ТолстойАК Князь Репнин",
+      "chapters": [
+        {
+          "id": "tolstoiak-knyaz-repnin-001",
+          "title": "Текст",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "tolstoiak-smert-ioanna-1",
+      "title": "ТолстойАК Смерть Иоанна 1",
+      "chapters": [
+        {
+          "id": "tolstoiak-smert-ioanna-1-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "tolstoiak-smert-ioanna-1-002",
+          "title": "Действие первое",
+          "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "tolstoiak-smert-ioanna-2",
+      "title": "ТолстойАК Смерть Иоанна 2",
+      "chapters": [
+        {
+          "id": "tolstoiak-smert-ioanna-2-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "tolstoiak-smert-ioanna-2-002",
+          "title": "Действие пятое",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "kupets-kalashnikov-libretto",
+      "title": "купец Калашников - либретто",
+      "chapters": [
+        {
+          "id": "kupets-kalashnikov-libretto-001",
+          "title": "Начало",
+          "neededInGame": false
+        },
+        {
+          "id": "kupets-kalashnikov-libretto-002",
+          "title": "Действие первое",
+          "neededInGame": false
+        },
+        {
+          "id": "kupets-kalashnikov-libretto-003",
+          "title": "Картина первая",
+          "neededInGame": true
+        },
+        {
+          "id": "kupets-kalashnikov-libretto-004",
+          "title": "Действие второе",
+          "neededInGame": false
+        },
+        {
+          "id": "kupets-kalashnikov-libretto-005",
+          "title": "Картина вторая",
+          "neededInGame": false
+        },
+        {
+          "id": "kupets-kalashnikov-libretto-006",
+          "title": "Картина третья",
+          "neededInGame": true
+        },
+        {
+          "id": "kupets-kalashnikov-libretto-007",
+          "title": "Действие третье",
+          "neededInGame": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+[
+  {
+    "taskId": "memo",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Старинная карточная забава держится на памяти и внимании."
+      },
+      {
+        "level": 2,
+        "text": "Князь Серебряный2"
+      },
+      {
+        "text": "Стара была его мамка.",
+        "bookId": "knyaz-serebryanyi2",
+        "chapterId": "knyaz-serebryanyi2-002",
+        "paragraphId": "t-knyaz-serebryanyi2-002-0002"
+      }
+    ]
+  },
+  {
+    "taskId": "puzzle",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Мозаика подскажет, когда фрагменты встанут на свои места."
+      },
+      {
+        "level": 2,
+        "text": "Князь Серебряный2"
+      },
+      {
+        "text": "Стара была его мамка.",
+        "bookId": "knyaz-serebryanyi2",
+        "chapterId": "knyaz-serebryanyi2-002",
+        "paragraphId": "t-knyaz-serebryanyi2-002-0002"
+      }
+    ]
+  },
+  {
+    "taskId": "match-captions",
+    "hints": [
+      {
+        "level": 1,
+        "text": "У каждой рамы есть своя подпись: присмотритесь к автору и событию."
+      },
+      {
+        "level": 2,
+        "text": "Князь Серебряный2"
+      },
+      {
+        "text": "Стара была его мамка.",
+        "bookId": "knyaz-serebryanyi2",
+        "chapterId": "knyaz-serebryanyi2-002",
+        "paragraphId": "t-knyaz-serebryanyi2-002-0002"
+      }
+    ]
+  },
+  {
+    "taskId": "crossword-names",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Историк оставил имена в рассказах о дворе и митрополите."
+      },
+      {
+        "level": 2,
+        "text": "Карамзин отрывки про Грозного-4"
+      },
+      {
+        "text": "ников Савватия и Зосимы сиял добродетелями Игумен Филипп, сын Боярина Колычева, возненавидев суету мира в самых цветущих летах юности, и служа примером строгой жизни для Иноков-отшельников. Государь с",
+        "bookId": "karamzin-otryvki-pro-groznogo-4",
+        "chapterId": "karamzin-otryvki-pro-groznogo-4-001",
+        "paragraphId": "t-karamzin-otryvki-pro-groznogo-4-001-0004"
+      }
+    ]
+  },
+  {
+    "taskId": "crossword-authors",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Узнаваемые кисти оставляют след даже на газетной вырезке."
+      },
+      {
+        "level": 2,
+        "text": "Каталог выставки живописцев"
+      },
+      {
+        "level": 3,
+        "text": "Все опричники были бледны; никто не решался взглянуть на царя.",
+        "bookId": "knyaz-serebryanyi",
+        "chapterId": "knyaz-serebryanyi4-002",
+        "paragraphId": "t-knyaz-serebryanyi4-002-0043"
+      }
+    ]
+  },
+  {
+    "taskId": "fill-words-repnin",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Репнинский стих хранит ответы в ритме и рифме."
+      },
+      {
+        "level": 2,
+        "text": "Князь Серебряный2"
+      },
+      {
+        "text": "Стара была его мамка.",
+        "bookId": "knyaz-serebryanyi2",
+        "chapterId": "knyaz-serebryanyi2-002",
+        "paragraphId": "t-knyaz-serebryanyi2-002-0002"
+      }
+    ]
+  },
+  {
+    "taskId": "fill-words-monument",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Три фигуры и три имени связаны с юными годами государя."
+      },
+      {
+        "level": 2,
+        "text": "Карамзин отрывки про Грозного-1"
+      },
+      {
+        "text": "огда юный Царь трепетал в Воробьевском дворце своем, а добродетельная Анастасия молилась, явился там какой-то удивительный муж именем Сильвестр, саном Иерей, родом из Новагорода; приближился к Иоанну ",
+        "bookId": "karamzin-otryvki-pro-groznogo-1",
+        "chapterId": "karamzin-otryvki-pro-groznogo-1-001",
+        "paragraphId": "t-karamzin-otryvki-pro-groznogo-1-001-0005"
+      }
+    ]
+  },
+  {
+    "taskId": "split-names",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Три портрета связаны с тремя именами из исторических записей."
+      },
+      {
+        "level": 2,
+        "text": "Князь Серебряный"
+      },
+      {
+        "level": 3,
+        "text": "Стара была его мамка.",
+        "bookId": "knyaz-serebryanyi2",
+        "chapterId": "knyaz-serebryanyi2-002",
+        "paragraphId": "t-knyaz-serebryanyi2-002-0002"
+      }
+    ]
+  },
+  {
+    "taskId": "drag-crown",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Память о боярской казни скрыта в сцене у царского трона."
+      },
+      {
+        "level": 2,
+        "text": "Карамзин отрывки про Грозного-5"
+      },
+      {
+        "level": 3,
+        "text": "Все опричники были бледны; никто не решался взглянуть на царя.",
+        "bookId": "knyaz-serebryanyi",
+        "chapterId": "knyaz-serebryanyi4-002",
+        "paragraphId": "t-knyaz-serebryanyi4-002-0043"
+      }
+    ]
+  },
+  {
+    "taskId": "drag-figure",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Подлинник отличает пустое место, оставленное художником."
+      },
+      {
+        "level": 2,
+        "text": "Сопоставление двух полотен"
+      },
+      {
+        "level": 3,
+        "text": "спросил шахматную доску и, сидя в халате на постели, сам расставил шашки",
+        "bookId": "karamzin-istoriya-tom-ix",
+        "chapterId": "karamzin-istoriya-tom-ix-007",
+        "paragraphId": "t-karamzin-istoriya-tom-ix-007-0017"
+      }
+    ]
+  },
+  {
+    "taskId": "combo-lock",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Три изображения напоминают о дерзком поступке псковского юродивого."
+      },
+      {
+        "level": 2,
+        "text": "Карамзин отрывки про Грозного-6"
+      },
+      {
+        "level": 3,
+        "text": "В один миг опричники сорвали с Морозова верхнюю одежду",
+        "bookId": "knyaz-serebryanyi4",
+        "chapterId": "knyaz-serebryanyi4-002",
+        "paragraphId": "t-knyaz-serebryanyi4-002-0029"
+      }
+    ]
+  },
+  {
+    "taskId": "chess",
+    "hints": [
+      {
+        "level": 1,
+        "text": "лает знак шуту, который рассматривал разные вещи на столах. Шут берет ящик с шахматами и подносит к Иоанну."
+      },
+      {
+        "level": 2,
+        "text": "ТолстойАК Смерть Иоанна 2"
+      },
+      {
+        "text": "лает знак шуту, который рассматривал разные вещи на столах. Шут берет ящик с шахматами и подносит к Иоанну.",
+        "bookId": "tolstoiak-smert-ioanna-2",
+        "chapterId": "tolstoiak-smert-ioanna-2-002",
+        "paragraphId": "t-tolstoiak-smert-ioanna-2-002-0275"
+      }
+    ]
+  },
+  {
+    "taskId": "gramophone",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Записи различаются напевами и словами либретто."
+      },
+      {
+        "level": 2,
+        "text": "На столе лежат три либретто: о царе Борисе, о Наталье и о купеческом сыне."
+      },
+      {
+        "text": "Как во городе было во Казани.",
+        "bookId": "boris-godunov-libretto-musorgskii",
+        "chapterId": "boris-godunov-libretto-musorgskii-005",
+        "paragraphId": "t-boris-godunov-libretto-musorgskii-005-0085"
+      }
+    ]
+  },
+  {
+    "taskId": "connect-pairs",
+    "hints": [
+      {
+        "level": 1,
+        "text": "Названия трёх сочинений связывают музыкантов с литераторами."
+      },
+      {
+        "level": 2,
+        "text": "Васнецов изобразил сцену из поэмы о купце Калашникове."
+      },
+      {
+        "text": "Кровь горячая, молодецкая!",
+        "bookId": "kupets-kalashnikov-libretto",
+        "chapterId": "kupets-kalashnikov-libretto-003",
+        "paragraphId": "t-kupets-kalashnikov-libretto-003-0561"
+      }
+    ]
+  },
+  {
+    "taskId": "finale",
+    "hints": [
+      {
+        "level": 1,
+        "text": "В картинах можно увидеть разные ответы эпохи на одну память."
+      },
+      {
+        "level": 2,
+        "text": "Князь Серебряный2"
+      },
+      {
+        "text": "Стара была его мамка.",
+        "bookId": "knyaz-serebryanyi2",
+        "chapterId": "knyaz-serebryanyi2-002",
+        "paragraphId": "t-knyaz-serebryanyi2-002-0002"
+      }
+    ]
+  }
+]

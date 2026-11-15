@@ -1,0 +1,221 @@
+{
+  "taskId": "crossword-names",
+  "width": 11,
+  "height": 13,
+  "entries": [
+    {
+      "answer": "ГРОЗНЫЙ",
+      "paintingId": "p03",
+      "row": 4,
+      "col": 4,
+      "direction": "across",
+      "revealed": true
+    },
+    {
+      "answer": "КОЛЫЧЁВ",
+      "paintingId": "p06",
+      "row": 3,
+      "col": 6,
+      "direction": "down"
+    },
+    {
+      "answer": "ОНУФРЕВНА",
+      "paintingId": "p15",
+      "row": 9,
+      "col": 0,
+      "direction": "across"
+    },
+    {
+      "answer": "САЛОС",
+      "paintingId": "p08",
+      "row": 6,
+      "col": 0,
+      "direction": "down"
+    },
+    {
+      "answer": "МОРОЗОВ",
+      "paintingId": "p40",
+      "row": 12,
+      "col": 4,
+      "direction": "across"
+    },
+    {
+      "answer": "ФЁДОРОВ",
+      "paintingId": "p25",
+      "row": 0,
+      "col": 5,
+      "direction": "down"
+    }
+  ],
+  "grid": [
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "Ф",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "Ё",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "Д",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "О",
+      "К",
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      "Г",
+      "Р",
+      "О",
+      "З",
+      "Н",
+      "Ы",
+      "Й"
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "О",
+      "Л",
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "С",
+      null,
+      null,
+      null,
+      null,
+      "В",
+      "Ы",
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "А",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "Ч",
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "Л",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "Ё",
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "О",
+      "Н",
+      "У",
+      "Ф",
+      "Р",
+      "Е",
+      "В",
+      "Н",
+      "А",
+      null,
+      null
+    ],
+    [
+      "С",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      "М",
+      "О",
+      "Р",
+      "О",
+      "З",
+      "О",
+      "В"
+    ]
+  ]
+}

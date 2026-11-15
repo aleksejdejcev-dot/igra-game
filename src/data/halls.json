@@ -1,0 +1,558 @@
+[
+  {
+    "id": "h01",
+    "title": "Вестибюль",
+    "theme": "Вступление",
+    "taskIds": [
+      "memo",
+      "puzzle"
+    ],
+    "paintingIds": [
+      "p36",
+      "p45",
+      "p49"
+    ],
+    "wallColor": "#493a31",
+    "palette": {
+      "wall": "#493a31",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "oak",
+    "doorShape": "rect",
+    "frameStyle": "gilded",
+    "props": [
+      "chandelier"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-memo",
+        "taskId": "memo",
+        "kind": "memo-table",
+        "position": [
+          -1.2,
+          0,
+          1.7
+        ],
+        "rotationY": 0,
+        "label": "На сукне разложены карточки с выставочными видами"
+      },
+      {
+        "id": "task-puzzle",
+        "taskId": "puzzle",
+        "kind": "puzzle-easel",
+        "position": [
+          1.2,
+          0,
+          1.6
+        ],
+        "rotationY": 0,
+        "label": "На мольберте рассыпалась мозаика одной картины"
+      }
+    ]
+  },
+  {
+    "id": "h02",
+    "title": "«Царство»",
+    "theme": "Государь и страна",
+    "taskIds": [
+      "match-captions"
+    ],
+    "paintingIds": [
+      "p28",
+      "p31",
+      "p35",
+      "p43"
+    ],
+    "wallColor": "#47181f",
+    "palette": {
+      "wall": "#47181f",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "gilded",
+    "doorShape": "rect",
+    "frameStyle": "gilded",
+    "props": [
+      "throne",
+      "columns",
+      "banners",
+      "carpet"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-match-captions",
+        "taskId": "match-captions",
+        "kind": "match-board",
+        "position": [
+          0,
+          0,
+          1.55
+        ],
+        "rotationY": 0,
+        "label": "Каталожные листки у афишной тумбы"
+      }
+    ],
+    "unlockAfter": [
+      "h01"
+    ]
+  },
+  {
+    "id": "h03",
+    "title": "«Митрополит Филипп»",
+    "theme": "Митрополит Филипп",
+    "taskIds": [
+      "crossword-names"
+    ],
+    "paintingIds": [
+      "p03",
+      "p12",
+      "p14",
+      "p15",
+      "p25",
+      "p40"
+    ],
+    "wallColor": "#343d44",
+    "palette": {
+      "wall": "#343d44",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "plain",
+    "doorShape": "rect",
+    "frameStyle": "plain",
+    "props": [
+      "iconostasis",
+      "lamps",
+      "stone"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-crossword-names",
+        "taskId": "crossword-names",
+        "kind": "crossword-desk",
+        "position": [
+          -1,
+          0,
+          1.65
+        ],
+        "rotationY": 0,
+        "label": "Вырезки и записи на конторке у стены"
+      }
+    ],
+    "unlockAfter": [
+      "h02"
+    ]
+  },
+  {
+    "id": "h04",
+    "title": "«Опричнина»",
+    "theme": "Опричнина и казни",
+    "taskIds": [
+      "crossword-authors",
+      "fill-words-repnin"
+    ],
+    "paintingIds": [
+      "p08",
+      "p10",
+      "p11",
+      "p23",
+      "p24",
+      "p30",
+      "p33",
+      "p39",
+      "p48",
+      "p50"
+    ],
+    "wallColor": "#241217",
+    "palette": {
+      "wall": "#241217",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "ebony",
+    "doorShape": "rect",
+    "frameStyle": "ebony",
+    "props": [
+      "blackwood",
+      "heavy-chandelier",
+      "dog-and-broom-frieze"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-fill-repnin",
+        "taskId": "fill-words-repnin",
+        "kind": "scroll-stand",
+        "position": [
+          0,
+          0,
+          1.55
+        ],
+        "rotationY": 0,
+        "label": "На пюпитре раскрыты стихи князя Репнина"
+      },
+      {
+        "id": "task-crossword-authors",
+        "taskId": "crossword-authors",
+        "kind": "ad-column",
+        "position": [
+          1.1,
+          0,
+          1.65
+        ],
+        "rotationY": 0,
+        "label": "На тумбе собраны газетные вырезки художников"
+      }
+    ],
+    "unlockAfter": [
+      "h03"
+    ]
+  },
+  {
+    "id": "h05",
+    "title": "«Юродивые»",
+    "theme": "Молитва и покаяние",
+    "taskIds": [
+      "combo-lock"
+    ],
+    "paintingIds": [
+      "p21",
+      "p29",
+      "p32",
+      "p46"
+    ],
+    "wallColor": "#403a33",
+    "palette": {
+      "wall": "#403a33",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "oak",
+    "doorShape": "rect",
+    "frameStyle": "oak",
+    "props": [
+      "icons",
+      "lamps",
+      "bench"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-combo-lock",
+        "taskId": "combo-lock",
+        "kind": "safe-cabinet",
+        "position": [
+          0,
+          0,
+          1.65
+        ],
+        "rotationY": 0,
+        "label": "Три окошка сейфа отражают старые картины"
+      }
+    ],
+    "unlockAfter": [
+      "h04"
+    ]
+  },
+  {
+    "id": "h06",
+    "title": "«Семья»",
+    "theme": "Смерть сына",
+    "taskIds": [
+      "split-names"
+    ],
+    "paintingIds": [
+      "p04",
+      "p09",
+      "p34",
+      "p47"
+    ],
+    "wallColor": "#685c4c",
+    "palette": {
+      "wall": "#685c4c",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "oak",
+    "doorShape": "rect",
+    "frameStyle": "oak",
+    "props": [
+      "curtains",
+      "cradle",
+      "carpet",
+      "chairs"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-split-names",
+        "taskId": "split-names",
+        "kind": "triptych-screen",
+        "position": [
+          0,
+          0,
+          1.65
+        ],
+        "rotationY": 0,
+        "label": "На трёх створках собраны семейные портреты"
+      }
+    ],
+    "unlockAfter": [
+      "h04"
+    ]
+  },
+  {
+    "id": "h07",
+    "title": "Шахматная гостиная",
+    "theme": "Двор и пиры",
+    "taskIds": [
+      "chess"
+    ],
+    "paintingIds": [
+      "p01",
+      "p13",
+      "p18",
+      "p22"
+    ],
+    "wallColor": "#272123",
+    "palette": {
+      "wall": "#272123",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "ebony",
+    "doorShape": "rect",
+    "frameStyle": "plain",
+    "props": [
+      "chess-floor",
+      "card-tables",
+      "shades"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-chess",
+        "taskId": "chess",
+        "kind": "chess-table",
+        "position": [
+          0,
+          0,
+          1.55
+        ],
+        "rotationY": 0,
+        "label": "На столике сохранилась незаконченная партия"
+      }
+    ],
+    "unlockAfter": [
+      "h04"
+    ]
+  },
+  {
+    "id": "h08",
+    "title": "Зал Тысячелетия",
+    "theme": "Государь и страна",
+    "taskIds": [
+      "fill-words-monument"
+    ],
+    "paintingIds": [
+      "p06",
+      "p37",
+      "p42",
+      "p44"
+    ],
+    "wallColor": "#2d3a31",
+    "palette": {
+      "wall": "#2d3a31",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "gilded",
+    "doorShape": "rect",
+    "frameStyle": "gilded",
+    "props": [
+      "green-marble",
+      "monument",
+      "bronze"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-fill-monument",
+        "taskId": "fill-words-monument",
+        "kind": "scroll-stand",
+        "position": [
+          0,
+          0,
+          1.55
+        ],
+        "rotationY": 0,
+        "label": "У памятника лежит историческая рукопись"
+      }
+    ],
+    "unlockAfter": [
+      "h04"
+    ]
+  },
+  {
+    "id": "h09",
+    "title": "Граммофонная комната",
+    "theme": "Двор и пиры",
+    "taskIds": [
+      "gramophone",
+      "connect-pairs"
+    ],
+    "paintingIds": [
+      "p05",
+      "p16",
+      "p26",
+      "p38",
+      "p02"
+    ],
+    "wallColor": "#42232e",
+    "palette": {
+      "wall": "#42232e",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "gilded",
+    "doorShape": "rect",
+    "frameStyle": "gilded",
+    "props": [
+      "gramophone",
+      "record-shelves",
+      "art-nouveau",
+      "book-covers"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-gramophone",
+        "taskId": "gramophone",
+        "kind": "gramophone-console",
+        "position": [
+          -1.05,
+          0,
+          1.5
+        ],
+        "rotationY": 0,
+        "label": "У граммофона лежат пластинки и ноты"
+      },
+      {
+        "id": "task-connect-pairs",
+        "taskId": "connect-pairs",
+        "kind": "portrait-board",
+        "position": [
+          1.05,
+          0,
+          1.5
+        ],
+        "rotationY": 0,
+        "label": "Портреты артистов и литераторов собраны на доске"
+      }
+    ],
+    "unlockAfter": [
+      "h04"
+    ]
+  },
+  {
+    "id": "h10",
+    "title": "Сокровищница",
+    "theme": "Опричнина и казни",
+    "taskIds": [
+      "drag-crown",
+      "drag-figure"
+    ],
+    "paintingIds": [
+      "p07",
+      "p17",
+      "p19",
+      "p20",
+      "p27",
+      "p41"
+    ],
+    "wallColor": "#211e20",
+    "palette": {
+      "wall": "#211e20",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "ebony",
+    "doorShape": "rect",
+    "frameStyle": "ebony",
+    "props": [
+      "vault",
+      "chests",
+      "iron-grille"
+    ],
+    "taskObjects": [
+      {
+        "id": "task-drag-crown",
+        "taskId": "drag-crown",
+        "kind": "crown-case",
+        "position": [
+          -1,
+          0,
+          1.65
+        ],
+        "rotationY": 0,
+        "label": "Корона покоится в отдельной витрине"
+      },
+      {
+        "id": "task-drag-figure",
+        "taskId": "drag-figure",
+        "kind": "figure-case",
+        "position": [
+          1,
+          0,
+          1.65
+        ],
+        "rotationY": 0,
+        "label": "Фигурка хранится в застеклённой витрине"
+      }
+    ],
+    "unlockAfter": [
+      "h04"
+    ]
+  },
+  {
+    "id": "h11",
+    "title": "«Редакция»",
+    "theme": "Итог",
+    "taskIds": [
+      "finale"
+    ],
+    "paintingIds": [],
+    "wallColor": "#303831",
+    "palette": {
+      "wall": "#303831",
+      "wood": "#34231d",
+      "velvet": "#54222d",
+      "brass": "#c5a05c",
+      "light": "#ffce84"
+    },
+    "doorStyle": "plain",
+    "doorShape": "rect",
+    "frameStyle": "oak",
+    "props": [
+      "editor-desk",
+      "green-lamp",
+      "newspaper-wall"
+    ],
+    "unlockAfterCount": 8
+  }
+]

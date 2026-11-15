@@ -1,0 +1,285 @@
+[
+  {
+    "id": "memo",
+    "type": "memo",
+    "maxMoves": 30,
+    "fit": "pad",
+    "paintingIds": [
+      "p02",
+      "p16",
+      "p26",
+      "p38",
+      "p46",
+      "p47"
+    ]
+  },
+  {
+    "id": "puzzle",
+    "type": "puzzle",
+    "grid": [
+      4,
+      3
+    ],
+    "paintingId": "p36"
+  },
+  {
+    "id": "match-captions",
+    "type": "match-captions",
+    "hallId": "h02"
+  },
+  {
+    "id": "crossword-names",
+    "type": "crossword-names",
+    "gridFile": "crossword-names.json",
+    "crop": "0% 0%"
+  },
+  {
+    "id": "crossword-authors",
+    "type": "crossword-authors",
+    "gridFile": "crossword-authors.json",
+    "crop": "0% 0%"
+  },
+  {
+    "id": "fill-words-repnin",
+    "type": "fill-words-repnin",
+    "bookId": "tolstoiak-knyaz-repnin",
+    "chapterId": "tolstoiak-knyaz-repnin-001",
+    "paragraphIds": [
+      "t-tolstoiak-knyaz-repnin-001-0003",
+      "t-tolstoiak-knyaz-repnin-001-0004",
+      "t-tolstoiak-knyaz-repnin-001-0005",
+      "t-tolstoiak-knyaz-repnin-001-0006",
+      "t-tolstoiak-knyaz-repnin-001-0007",
+      "t-tolstoiak-knyaz-repnin-001-0008",
+      "t-tolstoiak-knyaz-repnin-001-0009",
+      "t-tolstoiak-knyaz-repnin-001-0010",
+      "t-tolstoiak-knyaz-repnin-001-0011",
+      "t-tolstoiak-knyaz-repnin-001-0012",
+      "t-tolstoiak-knyaz-repnin-001-0013",
+      "t-tolstoiak-knyaz-repnin-001-0014",
+      "t-tolstoiak-knyaz-repnin-001-0015",
+      "t-tolstoiak-knyaz-repnin-001-0016",
+      "t-tolstoiak-knyaz-repnin-001-0017",
+      "t-tolstoiak-knyaz-repnin-001-0018",
+      "t-tolstoiak-knyaz-repnin-001-0019",
+      "t-tolstoiak-knyaz-repnin-001-0020",
+      "t-tolstoiak-knyaz-repnin-001-0021",
+      "t-tolstoiak-knyaz-repnin-001-0022",
+      "t-tolstoiak-knyaz-repnin-001-0023",
+      "t-tolstoiak-knyaz-repnin-001-0024",
+      "t-tolstoiak-knyaz-repnin-001-0025",
+      "t-tolstoiak-knyaz-repnin-001-0026",
+      "t-tolstoiak-knyaz-repnin-001-0027",
+      "t-tolstoiak-knyaz-repnin-001-0028",
+      "t-tolstoiak-knyaz-repnin-001-0029",
+      "t-tolstoiak-knyaz-repnin-001-0030",
+      "t-tolstoiak-knyaz-repnin-001-0031",
+      "t-tolstoiak-knyaz-repnin-001-0032",
+      "t-tolstoiak-knyaz-repnin-001-0033",
+      "t-tolstoiak-knyaz-repnin-001-0034",
+      "t-tolstoiak-knyaz-repnin-001-0035",
+      "t-tolstoiak-knyaz-repnin-001-0036",
+      "t-tolstoiak-knyaz-repnin-001-0037",
+      "t-tolstoiak-knyaz-repnin-001-0038",
+      "t-tolstoiak-knyaz-repnin-001-0039",
+      "t-tolstoiak-knyaz-repnin-001-0040",
+      "t-tolstoiak-knyaz-repnin-001-0041",
+      "t-tolstoiak-knyaz-repnin-001-0042",
+      "t-tolstoiak-knyaz-repnin-001-0043",
+      "t-tolstoiak-knyaz-repnin-001-0044",
+      "t-tolstoiak-knyaz-repnin-001-0045",
+      "t-tolstoiak-knyaz-repnin-001-0046",
+      "t-tolstoiak-knyaz-repnin-001-0047",
+      "t-tolstoiak-knyaz-repnin-001-0048"
+    ],
+    "answers": [
+      "хоровод",
+      "окружил",
+      "плясать",
+      "раб",
+      "день",
+      "встарь",
+      "час",
+      "пал"
+    ],
+    "blanks": [
+      {
+        "index": 13,
+        "answer": "хоровод"
+      },
+      {
+        "index": 19,
+        "answer": "окружил"
+      },
+      {
+        "index": 21,
+        "answer": "плясать"
+      },
+      {
+        "index": 23,
+        "answer": "раб"
+      },
+      {
+        "index": 25,
+        "answer": "день"
+      },
+      {
+        "index": 29,
+        "answer": "встарь"
+      },
+      {
+        "index": 31,
+        "answer": "час"
+      },
+      {
+        "index": 33,
+        "answer": "пал"
+      }
+    ]
+  },
+  {
+    "id": "fill-words-monument",
+    "type": "fill-words-monument",
+    "mode": "identify-figures-from-image-and-primary-text",
+    "image": "/assets/tasks/s10_1.webp",
+    "descriptionText": null,
+    "links": [
+      "t-karamzin-otryvki-pro-groznogo-1-001-0005",
+      "t-karamzin-istoriya-tom-viii-005-0013"
+    ],
+    "names": [
+      "Сильвестр",
+      "Анастасия",
+      "Адашев"
+    ],
+    "figures": [
+      {
+        "name": "Сильвестр",
+        "paragraphId": "t-karamzin-otryvki-pro-groznogo-1-001-0005"
+      },
+      {
+        "name": "Анастасия",
+        "paragraphId": "t-karamzin-otryvki-pro-groznogo-1-001-0005"
+      },
+      {
+        "name": "Адашев",
+        "paragraphId": "t-karamzin-istoriya-tom-viii-005-0013"
+      }
+    ],
+    "sourceParagraphIds": [
+      "t-karamzin-otryvki-pro-groznogo-1-001-0005",
+      "t-karamzin-otryvki-pro-groznogo-1-001-0005",
+      "t-karamzin-istoriya-tom-viii-005-0013"
+    ]
+  },
+  {
+    "id": "split-names",
+    "type": "split-names",
+    "areas": [
+      {
+        "paintingId": "p04",
+        "answer": "Островский",
+        "given": true
+      },
+      {
+        "paintingId": "p09",
+        "answer": "Карамзин"
+      },
+      {
+        "paintingId": "p34",
+        "answer": "Толстой"
+      }
+    ]
+  },
+  {
+    "id": "drag-crown",
+    "type": "drag-crown",
+    "paintingId": "p25",
+    "poem": "Чтоб доказать, что смысл картины этой / Ты понял правильно — пришей царю нашивку. / Не забывай, что в царство Иоанна / Ты очень дорого заплатишь за ошибку."
+  },
+  {
+    "id": "drag-figure",
+    "type": "drag-figure",
+    "paintingIds": [
+      "p19",
+      "p20"
+    ],
+    "correctPaintingId": "p19",
+    "zone": "figure"
+  },
+  {
+    "id": "combo-lock",
+    "type": "combo-lock",
+    "correctPaintingIds": [
+      "p08",
+      "p32",
+      "p23"
+    ],
+    "distractorIds": [
+      "p21",
+      "p29",
+      "p46",
+      "p14",
+      "p25"
+    ],
+    "sourceParagraphIds": [
+      "t-karamzin-otryvki-pro-groznogo-6-001-0011"
+    ]
+  },
+  {
+    "id": "chess",
+    "type": "chess",
+    "fen": "2bq2nr/k5pp/p2Np3/1p2P3/5P1B/NQP4P/P5P1/6KR b - - 0 1",
+    "moves": [
+      "d8b6",
+      "h4f2",
+      "b6f2",
+      "g1f2"
+    ],
+    "hint1CostPercent": 50
+  },
+  {
+    "id": "gramophone",
+    "type": "gramophone",
+    "audioFiles": [
+      "boris.mp3",
+      "oprichnik.mp3",
+      "kalashnikov.mp3"
+    ]
+  },
+  {
+    "id": "connect-pairs",
+    "type": "connect-pairs",
+    "portraits": [
+      "s17_1.webp",
+      "s17_2.webp",
+      "s17_3.webp",
+      "s17_4.webp",
+      "s17_5.webp",
+      "s17_6.webp"
+    ],
+    "pairs": [
+      [
+        "rubinstein",
+        "lermontov"
+      ],
+      [
+        "mussorgsky",
+        "pushkin"
+      ],
+      [
+        "tchaikovsky",
+        "lazhechnikov"
+      ]
+    ],
+    "coverImages": [
+      "cover-rubinstein.jpg",
+      "cover-lermontov.jpg",
+      "cover-pushkin.jpg"
+    ]
+  },
+  {
+    "id": "finale",
+    "type": "finale"
+  }
+]

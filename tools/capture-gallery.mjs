@@ -1,0 +1,35 @@
+import { mkdirSync, readFileSync } from 'node:fs';
+import { chromium } from '@playwright/test';
+const base='http://127.0.0.1:4174';
+const halls=JSON.parse(readFileSync(new URL('../src/data/halls.json',import.meta.url),'utf8'));
+const allUnlocked=JSON.stringify({player:{name:'Корреспондент'},unlockedHalls:halls.map(h=>h.id),solvedTasks:{},totalScore:0,visitedPaintings:[],readParagraphs:[]});
+const browser=await chromium.launch({headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl','--ignore-gpu-blocklist']});
+const context=await browser.newContext({viewport:{width:1280,height:800},deviceScaleFactor:2});
+await context.addInitScript(value=>{localStorage.setItem('closed-exhibition-1898:save-v1',value);localStorage.setItem('gallery-preferences',JSON.stringify({quality:'high',textScale:100}));},allUnlocked);
+const page=await context.newPage();let center=0;
+for(const hall of halls){
+  const width=Math.max(10,Math.ceil(Math.max(1,hall.paintingIds.length)/2)*2.25+2);center+=width/2;
+  await page.goto(`${base}/?dev=1#hall/${hall.id}`);await page.waitForFunction(()=>Boolean(window.__WORLD_TEST__));await page.waitForTimeout(700);
+  mkdirSync(`tools/shots/${hall.id}`,{recursive:true});
+  await page.screenshot({path:`tools/shots/${hall.id}/entry.png`});
+  await page.evaluate(x=>{window.__WORLD_TEST__.setCollisionEnabled(false);window.__WORLD_TEST__.setPosition(x,1.6,1.1);window.__WORLD_TEST__.setAngles(Math.PI/2,0);},center);
+  await page.waitForTimeout(160);await page.screenshot({path:`tools/shots/${hall.id}/center.png`});
+  await page.evaluate(x=>{window.__WORLD_TEST__.setPosition(x,1.6,0);window.__WORLD_TEST__.setAngles(0,0);},center);
+  await page.waitForTimeout(160);await page.screenshot({path:`tools/shots/${hall.id}/artwork.png`});
+  center+=width/2;
+}
+const doorContext=await browser.newContext({viewport:{width:1280,height:800},deviceScaleFactor:2});
+await doorContext.addInitScript(value=>{localStorage.setItem('closed-exhibition-1898:save-v1',value);localStorage.setItem('gallery-preferences',JSON.stringify({quality:'high',textScale:100}));},JSON.stringify({player:{name:'Корреспондент'},unlockedHalls:['h01'],solvedTasks:{},totalScore:0,visitedPaintings:[],readParagraphs:[]}));
+const doorPage=await doorContext.newPage();await doorPage.goto(`${base}/?dev=1#hall/h01`);await doorPage.waitForFunction(()=>Boolean(window.__WORLD_TEST__));await doorPage.waitForTimeout(500);
+await doorPage.evaluate(()=>{window.__WORLD_TEST__.setPosition(8.4,1.6,0);window.__WORLD_TEST__.setAngles(-Math.PI/2,0);});await doorPage.waitForTimeout(300);
+mkdirSync('tools/shots/doors',{recursive:true});await doorPage.screenshot({path:'tools/shots/doors/locked.png'});
+await doorPage.locator('.dev-unlock').click();await doorPage.waitForTimeout(1700);await doorPage.screenshot({path:'tools/shots/doors/open.png'});
+await doorPage.evaluate(()=>window.__WORLD_TEST__.setPosition(10.35,1.6,0));await doorPage.waitForTimeout(250);await doorPage.screenshot({path:'tools/shots/doors/threshold.png'});
+await doorContext.close();
+await page.evaluate(()=>window.__WORLD_TEST__.setPosition(3.33,1.6,-1.4));await page.waitForTimeout(600);
+await page.screenshot({path:'tools/shots/sharpness/painting-label.png'});
+await page.mouse.click(640,280);await page.waitForTimeout(300);
+if(await page.locator('.spread-dialog').count()) await page.screenshot({path:'tools/shots/sharpness/spread.png'});
+await page.keyboard.press('Escape');await page.locator('.hint-open').click();await page.waitForTimeout(250);if(await page.locator('.hint-dialog').count())await page.screenshot({path:'tools/shots/sharpness/hint.png'});
+await page.goto(`${base}/?dev=1#start`);await page.evaluate(()=>localStorage.removeItem('closed-exhibition-1898:save-v1'));await page.reload();await page.waitForTimeout(300);await page.screenshot({path:'tools/shots/sharpness/start-letter.png'});
+await browser.close();

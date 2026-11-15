@@ -1,0 +1,589 @@
+[
+  {
+    "paintingId": "p01",
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Подпись называет прогулку царевича, но в доступном корпусе нет текста, устанавливающего эту конкретную сцену."
+  },
+  {
+    "paintingId": "p02",
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Поэма Лермонтова содержит бой Калашникова и Кирибеевича, но не подтверждает показанный Васнецовым отъезд Грозного после поединка."
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Это обобщённый портрет без указания на конкретный эпизод.",
+    "paintingId": "p03"
+  },
+  {
+    "paintingId": "p04",
+    "bookId": "knyaz-serebryanyi2",
+    "chapterId": "knyaz-serebryanyi2-002",
+    "paragraphId": "t-knyaz-serebryanyi2-002-0002",
+    "quote": "Стара была его мамка.",
+    "confidence": "medium",
+    "reason": "В романе прямо описана мамка Ивана; связь названию картины соответствует."
+  },
+  {
+    "paintingId": "p05",
+    "bookId": "karamzin-istoriya-tom-viii",
+    "chapterId": "karamzin-istoriya-tom-viii-004",
+    "paragraphId": "t-karamzin-istoriya-tom-viii-004-0039",
+    "quote": "Город был взят и пылал в разных местах",
+    "confidence": "medium",
+    "reason": "Карамзин описывает взятие Казани и разгром города; конкретно эскиз картины не идентифицируется."
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Карамзин описывает конфликт Филиппа и расправу над ним, но сцены с Басмановым и головой казнённого Колычева в найденных приоритетных текстах нет.",
+    "paintingId": "p06"
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-007",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-007-0017",
+    "quote": "читал молитвы пострижения над издыхающим, названным в Монашестве Ионою",
+    "confidence": "medium",
+    "reason": "Карамзин описывает пострижение Иоанна в последние минуты; личность совершающего обряд в этом месте не названа митрополитом.",
+    "paintingId": "p07"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-6",
+    "chapterId": "karamzin-otryvki-pro-groznogo-6-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-6-001-0011",
+    "quote": "жил славный благочестием отшельник Салос (юродивый) Никола",
+    "confidence": "medium",
+    "reason": "Карамзин прямо описывает встречу Ивана с Николой Салосом.",
+    "paintingId": "p08"
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Аллегорические тени убитых — художественный образ; соответствующего буквального эпизода в источниках нет.",
+    "paintingId": "p09"
+  },
+  {
+    "paintingId": "p10",
+    "bookId": "karamzin-istoriya-tom-viii",
+    "chapterId": "karamzin-istoriya-tom-viii-003",
+    "paragraphId": "t-karamzin-istoriya-tom-viii-003-0016",
+    "quote": "дворец Кремлевский наполнился знаменитейшими мужами Русского Царства",
+    "confidence": "medium",
+    "reason": "Карамзин описывает открытие собора 1551 года и речь Иоанна перед духовными и мирскими чинами."
+  },
+  {
+    "paintingId": "p11",
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Карамзин подтверждает поездку Иоанна в Кириллов монастырь, но не сцену просьбы к игумену Кириллу о постриге."
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Обобщённый портрет не задаёт конкретной сцены или исторического эпизода.",
+    "paintingId": "p12"
+  },
+  {
+    "paintingId": "p13",
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Александровская слобода упоминается как место пребывания царя, но абзац, описывающий эту конкретную картину, не найден."
+  },
+  {
+    "paintingId": "p14",
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Заголовок картины редакционный и не идентифицирует конкретный пир или застольную сцену."
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Обобщённый портрет без сюжетных деталей.",
+    "paintingId": "p15"
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-007",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-007-0016",
+    "quote": "показывал их с удовольствием Англичанину Горсею",
+    "confidence": "high",
+    "reason": "В абзаце прямо названы сокровища и английский посол Горсей.",
+    "paintingId": "p16"
+  },
+  {
+    "paintingId": "p17",
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-007",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-007-0017",
+    "quote": "читал молитвы пострижения над издыхающим, названным в Монашестве Ионою",
+    "confidence": "medium",
+    "reason": "Карамзин описывает пострижение Иоанна в последние минуты; личность совершающего обряд в этом месте не названа митрополитом."
+  },
+  {
+    "bookId": "tolstoiak-knyaz-repnin",
+    "chapterId": "tolstoiak-knyaz-repnin-001",
+    "paragraphId": "t-tolstoiak-knyaz-repnin-001-0019",
+    "quote": "И все подъяли кубки. Не поднял лишь один;",
+    "confidence": "medium",
+    "reason": "Стихотворение Толстого описывает пир и выступление князя Репнина.",
+    "paintingId": "p18"
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-007",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-007-0017",
+    "quote": "спросил шахматную доску и, сидя в халате на постели, сам расставил шашки",
+    "confidence": "medium",
+    "reason": "Карамзин описывает последние минуты и смерть Иоанна у шахматной доски.",
+    "paintingId": "p19"
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-007",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-007-0017",
+    "quote": "спросил шахматную доску и, сидя в халате на постели, сам расставил шашки",
+    "confidence": "medium",
+    "reason": "Карамзин описывает последние минуты и смерть Иоанна у шахматной доски.",
+    "paintingId": "p20"
+  },
+  {
+    "bookId": "knyaz-serebryanyi4",
+    "chapterId": "knyaz-serebryanyi4-002",
+    "paragraphId": "t-knyaz-serebryanyi4-002-0029",
+    "quote": "В один миг опричники сорвали с Морозова верхнюю одежду",
+    "confidence": "medium",
+    "reason": "В романе прямо описан эпизод с боярином Морозовым.",
+    "paintingId": "p21"
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Слобода Александровская есть в источниках как историческое место, но конкретная композиция картины не сопоставлена с отдельной сценой.",
+    "paintingId": "p22"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-6",
+    "chapterId": "karamzin-otryvki-pro-groznogo-6-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-6-001-0011",
+    "quote": "жил славный благочестием отшельник Салос",
+    "confidence": "medium",
+    "reason": "Карамзин связывает Салоса и Псков, соответствующие подписи картины.",
+    "paintingId": "p23"
+  },
+  {
+    "paintingId": "p24",
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-003",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-003-0020",
+    "quote": "Между ими славился Князь Осип Гвоздев",
+    "confidence": "medium",
+    "reason": "Карамзин прямо называет князя Осипа Гвоздева среди царских шутов; картина иллюстрирует его гибель."
+  },
+  {
+    "paintingId": "p25",
+    "bookId": "knyaz-serebryanyi",
+    "chapterId": "knyaz-serebryanyi4-002",
+    "paragraphId": "t-knyaz-serebryanyi4-002-0043",
+    "quote": "Все опричники были бледны; никто не решался взглянуть на царя.",
+    "confidence": "medium",
+    "reason": "В эпизоде у Морозова опричники находятся при царе и участвуют в насилии над боярином."
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Пьеса Островского содержит героев Ивана и Василису, но точное соответствие изображённой сцены в тексте не установлено.",
+    "paintingId": "p26"
+  },
+  {
+    "bookId": "knyaz-serebryanyi",
+    "chapterId": "knyaz-serebryanyi4-002",
+    "paragraphId": "t-knyaz-serebryanyi4-002-0049",
+    "quote": "боярина Морозова одел в шутовской кафтан",
+    "confidence": "high",
+    "reason": "Прямо описан шутовской кафтан боярина Морозова и обстоятельства унижения.",
+    "paintingId": "p27"
+  },
+  {
+    "paintingId": "p28",
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-003",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-003-0006",
+    "quote": "в уединенной тесной келии Отроча-монастыря еще дышал Св. старец Филипп",
+    "confidence": "medium",
+    "reason": "Абзац помещает митрополита Филиппа в заточение в Отроче монастыре перед его убийством."
+  },
+  {
+    "bookId": "knyaz-serebryanyi4",
+    "chapterId": "knyaz-serebryanyi4-002",
+    "paragraphId": "t-knyaz-serebryanyi4-002-0029",
+    "quote": "напялили на него кафтан с колокольцами",
+    "confidence": "medium",
+    "reason": "Толстой описывает шутовской кафтан Морозова.",
+    "paintingId": "p29"
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Карамзин и Толстой описывают опричников, однако визит опричников именно в дом земского в источниках не найден.",
+    "paintingId": "p30"
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-003",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-003-0006",
+    "quote": "в уединенной тесной келии Отроча-монастыря еще дышал Св. старец Филипп",
+    "confidence": "medium",
+    "reason": "Абзац описывает последние дни Филиппа в заточении; точный момент кончины здесь не детализирован.",
+    "paintingId": "p31"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-6",
+    "chapterId": "karamzin-otryvki-pro-groznogo-6-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-6-001-0011",
+    "quote": "Салос (юродивый) Никола",
+    "confidence": "medium",
+    "reason": "Карамзин прямо описывает подвиг Николы Салоса.",
+    "paintingId": "p32"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-1",
+    "chapterId": "karamzin-otryvki-pro-groznogo-1-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-1-001-0005",
+    "quote": "добродетельная Анастасия молилась, явился там какой-то удивительный муж именем Сильвестр",
+    "confidence": "medium",
+    "reason": "Фрагмент описывает встречу Ивана и Сильвестра во время московского пожара.",
+    "paintingId": "p33"
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Тексты говорят о религиозных обетах и поездках Иоанна, но не описывают его в молельне в изображённой композиции.",
+    "paintingId": "p34"
+  },
+  {
+    "paintingId": "p35",
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-002",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-002-0026",
+    "quote": "Митрополит смотрел на образ Спасителя, не говоря ни слова.",
+    "confidence": "high",
+    "reason": "Карамзин прямо описывает отказ Филиппа благословить Иоанна в Успенском соборе."
+  },
+  {
+    "bookId": "k-istorii-kartiny-repina",
+    "chapterId": "k-istorii-kartiny-repina-001",
+    "paragraphId": "t-k-istorii-kartiny-repina-001-0010",
+    "quote": "Иван Грозный с убитым сыном",
+    "confidence": "high",
+    "reason": "Текст непосредственно обсуждает картину Репина с изображённой сценой.",
+    "paintingId": "p36"
+  },
+  {
+    "bookId": "tolstoiak-smert-ioanna-2",
+    "chapterId": "tolstoiak-smert-ioanna-2-002",
+    "paragraphId": "t-tolstoiak-smert-ioanna-2-002-0222",
+    "quote": "За Иоанном входят Годунов, Мстиславский, Шуйский и другие бояре",
+    "confidence": "medium",
+    "reason": "Ремарка пьесы прямо помещает Годунова у постели Иоанна среди бояр.",
+    "paintingId": "p37"
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Карамзин сообщает о посольстве Ермака и письме царю, но отдельная сцена приёма посланников на красном крыльце не описана.",
+    "paintingId": "p38"
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Обобщённая сцена царя с приближёнными без идентифицированных участников и действия.",
+    "paintingId": "p39"
+  },
+  {
+    "paintingId": "p40",
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-004",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-004-0005",
+    "quote": "Малюта Григорий Лукьянович Скуратов-Бельский",
+    "confidence": "medium",
+    "reason": "Карамзин прямо отождествляет Малюту Скуратова как ближайшего царского любимца."
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Пьеса Островского содержит сцены Ивана и Василисы, но мотив любования, указанный в подписи, в точный эпизод не сведен.",
+    "paintingId": "p41"
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-002",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-002-0006",
+    "quote": "велел пытать вручителя",
+    "confidence": "medium",
+    "reason": "Эпизод относится к посланцу князя Курбского Василию Шибанову.",
+    "paintingId": "p42"
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-002",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-002-0026",
+    "quote": "Митрополит смотрел на образ Спасителя, не говоря ни слова.",
+    "confidence": "high",
+    "reason": "Карамзин прямо описывает отказ Филиппа благословить Иоанна; подпись картины указывает на тот же эпизод обличения.",
+    "paintingId": "p43"
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-002",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-002-0006",
+    "quote": "велел пытать вручителя",
+    "confidence": "medium",
+    "reason": "Карамзин описывает допрос посланца Курбского.",
+    "paintingId": "p44"
+  },
+  {
+    "paintingId": "p45",
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-005",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-005-0045",
+    "quote": "пришел к отцу и требовал, чтобы он послал его с войском",
+    "confidence": "medium",
+    "reason": "Карамзин описывает ссору отца и сына, непосредственно предшествовавшую смертельному удару."
+  },
+  {
+    "paintingId": "p46",
+    "bookId": "knyaz-serebryanyi",
+    "chapterId": "knyaz-serebryanyi3-002",
+    "paragraphId": "t-knyaz-serebryanyi3-002-0024",
+    "quote": "Иван Васильевич не мог удержаться от смеха. Он подъехал к ним ближе.",
+    "confidence": "high",
+    "reason": "Абзац прямо описывает встречу Ивана Васильевича со слепыми во время соколиной охоты."
+  },
+  {
+    "paintingId": "p47",
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "В главе о соколиной охоте есть описание выезда и сокольников, но поднесение перчатки в тексте не найдено."
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-viii",
+    "chapterId": "karamzin-istoriya-tom-viii-005",
+    "paragraphId": "t-karamzin-istoriya-tom-viii-005-0014",
+    "quote": "Иоанн объявил намерение ехать в монастырь Св. Кирилла Белозерского",
+    "confidence": "medium",
+    "reason": "Карамзин описывает паломничество Иоанна в Кириллов монастырь; иного подходящего эпизода в корпусе не найдено.",
+    "paintingId": "p48"
+  },
+  {
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-005",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-005-0045",
+    "quote": "пришел к отцу и требовал, чтобы он послал его с войском",
+    "confidence": "medium",
+    "reason": "Карамзин описывает ссору отца и сына, приведшую к смертельному удару; изображённый момент у тела сына в тексте отдельно не описан.",
+    "paintingId": "p49"
+  },
+  {
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Роман описывает знакомство князя Серебряного с Морозовым, но визит князя в дом боярина, изображённый на картине, не подтверждён найденным фрагментом.",
+    "paintingId": "p50"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-5",
+    "chapterId": "karamzin-otryvki-pro-groznogo-5-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-5-001-0004",
+    "quote": "надел на Федорова царскую одежду и венец, посадил его на трон, дал ему державу в руку, снял с себя шапку, низко поклонился и сказал: \"Здрав буди, Великий Царь земли Русския! Се при",
+    "confidence": "high",
+    "reason": "Фрагмент об обвинении Фёдорова и расправе над ним.",
+    "taskId": "drag-crown"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-6",
+    "chapterId": "karamzin-otryvki-pro-groznogo-6-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-6-001-0011",
+    "quote": "отели изменить России. Там начальствовал добрый Князь Юрий Токмаков и жил славный благочестием отшельник Салос (юродивый) Никола: один счастливым советом, другой счастливою дерзостию спасли город. В С",
+    "confidence": "high",
+    "reason": "Карамзин прямо описывает спасение Пскова Николой Салосом.",
+    "taskId": "combo-lock"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-4",
+    "chapterId": "karamzin-otryvki-pro-groznogo-4-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-4-001-0004",
+    "quote": "ников Савватия и Зосимы сиял добродетелями Игумен Филипп, сын Боярина Колычева, возненавидев суету мира в самых цветущих летах юности, и служа примером строгой жизни для Иноков-отшельников. Государь с",
+    "confidence": "high",
+    "reason": "Род Колычёвых связан с митрополитом Филиппом.",
+    "taskId": "crossword-names"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-1",
+    "chapterId": "karamzin-otryvki-pro-groznogo-1-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-1-001-0005",
+    "quote": "огда юный Царь трепетал в Воробьевском дворце своем, а добродетельная Анастасия молилась, явился там какой-то удивительный муж именем Сильвестр, саном Иерей, родом из Новагорода; приближился к Иоанну ",
+    "confidence": "high",
+    "reason": "В абзаце названы Анастасия, Сильвестр и Адашев.",
+    "taskId": "fill-words-monument"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-5",
+    "chapterId": "karamzin-otryvki-pro-groznogo-5-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-5-001-0007",
+    "quote": "г, даже истреблял скот, особенно в Коломенских селах убитого Конюшего Федорова; возвратился в Москву и велел ночью развезти жен по домам: некоторые из них умерли от стыда и горести.",
+    "confidence": "high",
+    "reason": "Назван казнённый конюший Иван Петрович Фёдоров.",
+    "taskId": "crossword-names"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-6",
+    "chapterId": "karamzin-otryvki-pro-groznogo-6-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-6-001-0011",
+    "quote": "вовал добрый Князь Юрий Токмаков и жил славный благочестием отшельник Салос (юродивый) Никола: один счастливым советом, другой счастливою дерзостию спасли город. В Субботу второй недели Великого Поста",
+    "confidence": "high",
+    "reason": "Карамзин рассказывает о Николе Салосе.",
+    "taskId": "crossword-names"
+  },
+  {
+    "bookId": "knyaz-serebryanyi4",
+    "chapterId": "knyaz-serebryanyi4-002",
+    "paragraphId": "t-knyaz-serebryanyi4-002-0029",
+    "quote": "В один миг опричники сорвали с Морозова верхнюю одежду и напялили на него кафтан с колокольцами.",
+    "confidence": "high",
+    "reason": "Эпизод прямо называет Морозова.",
+    "taskId": "crossword-names"
+  },
+  {
+    "bookId": "tolstoiak-smert-ioanna-2",
+    "chapterId": "tolstoiak-smert-ioanna-2-002",
+    "paragraphId": "t-tolstoiak-smert-ioanna-2-002-0275",
+    "quote": "лает знак шуту, который рассматривал разные вещи на столах. Шут берет ящик с шахматами и подносит к Иоанну.",
+    "confidence": "high",
+    "reason": "Эпизод начала партии царя с Бельским.",
+    "taskId": "chess"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-1",
+    "chapterId": "karamzin-otryvki-pro-groznogo-1-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-1-001-0005",
+    "quote": "льная Анастасия молилась, явился там какой-то удивительный муж именем Сильвестр, саном Иерей, родом из Новагорода; приближился к Иоанну с подъятым, угрожающим перстом, с видом пророка, и гласом убедит",
+    "confidence": "high",
+    "reason": "Три имени встречаются в подлинном фрагменте Карамзина.",
+    "taskId": "fill-words-monument"
+  },
+  {
+    "bookId": "karamzin-otryvki-pro-groznogo-2",
+    "chapterId": "karamzin-otryvki-pro-groznogo-2-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-2-001-0006",
+    "quote": "Сие без сомнения великое зло произвело еще ужаснейшее. Развратники, указывая Царю на печальные лица важных Бояр, шептали: \"Вот твои недоброхоты!",
+    "confidence": "high",
+    "reason": "Карамзин называет Адашева; фрагмент связан с окружением Ивана IV.",
+    "taskId": "fill-words-monument"
+  },
+  {
+    "bookId": "knyaz-serebryanyi2",
+    "chapterId": "knyaz-serebryanyi2-002",
+    "paragraphId": "t-knyaz-serebryanyi2-002-0003",
+    "quote": "Онуфревна посредством гаданья и никогда не ошибалась. В самое величие князя Телепнева — Иоанну тогда было четыре года — она предсказала князю, что он ",
+    "confidence": "high",
+    "reason": "Роман прямо называет мамку Онуфревну и описывает её гадания.",
+    "taskId": "crossword-names"
+  },
+  {
+    "paintingId": null,
+    "taskId": "fill-words-monument",
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Полный источник «Воспоминания Микешина» в предоставленных материалах не найден; заменён изображением памятника и первичным текстом Карамзина."
+  },
+  {
+    "paintingId": null,
+    "taskId": "fill-words-monument",
+    "bookId": null,
+    "chapterId": null,
+    "paragraphId": null,
+    "quote": "",
+    "confidence": "low",
+    "reason": "Полный источник «Описание памятника Тысячелетие России» в предоставленных материалах не найден; заменён изображением памятника и первичным текстом Карамзина."
+  },
+  {
+    "taskId": "gramophone",
+    "bookId": "boris-godunov-libretto-musorgskii",
+    "chapterId": "boris-godunov-libretto-musorgskii-005",
+    "paragraphId": "t-boris-godunov-libretto-musorgskii-005-0085",
+    "quote": "Как во городе было во Казани.",
+    "confidence": "high",
+    "reason": "Дословная строка песни Варлаама для субтитров и подсказки задания «Граммофон»."
+  },
+  {
+    "taskId": "connect-pairs",
+    "bookId": "kupets-kalashnikov-libretto",
+    "chapterId": "kupets-kalashnikov-libretto-003",
+    "paragraphId": "t-kupets-kalashnikov-libretto-003-0561",
+    "quote": "Кровь горячая, молодецкая!",
+    "confidence": "high",
+    "reason": "Дословная строка либретто для связки литературного сочинения с музыкальной постановкой."
+  }
+]

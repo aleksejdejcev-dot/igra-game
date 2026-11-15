@@ -1,0 +1,29 @@
+[
+  {
+    "file": "boris.mp3",
+    "opera": "Борис Годунов",
+    "title": "Песня Варлаама «Как во городе было во Казани»",
+    "composer": "Модест Мусоргский",
+    "durationSec": 140.865,
+    "sourceFile": "source/audio/Борис Годунов - Песня Варлаама Шаляпин.mp3",
+    "startSec": 0
+  },
+  {
+    "file": "oprichnik.mp3",
+    "opera": "Опричник",
+    "title": "Действие I, № 2: песня Натальи",
+    "composer": "Пётр Чайковский",
+    "durationSec": 75,
+    "sourceFile": "source/audio/Опричник - опера Чайковский.mp3",
+    "startSec": 993.5
+  },
+  {
+    "file": "kalashnikov.mp3",
+    "opera": "Купец Калашников",
+    "title": "Песня Кирибеевича на пиру у царя",
+    "composer": "Антон Рубинштейн",
+    "durationSec": 75,
+    "sourceFile": "source/audio/Купец Калашников - опера Рубинштейн выдержки.mp3",
+    "startSec": 1167.3
+  }
+]

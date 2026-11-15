@@ -1,0 +1,33 @@
+{
+  "name": "zakrytaya-vystavka-1898",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "vitest run && playwright test",
+    "lint": "eslint .",
+    "validate": "tsx tools/validate-all.ts",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "@types/three": "0.187.0",
+    "chess.js": "^1.4.0",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "playwright": "1.65.1",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.2",
+    "vitest": "^4.0.8"
+  },
+  "dependencies": {
+    "three": "0.187.0"
+  }
+}

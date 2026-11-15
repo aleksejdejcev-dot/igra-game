@@ -1,0 +1,7 @@
+import { expect,test } from '@playwright/test';
+test('мозаика состоит из двенадцати частей и собирается указателем и клавиатурой',async({page})=>{
+  await page.goto('/dev.html?dev=1&task=puzzle');await expect(page.locator('.puzzle-tile')).toHaveCount(12);await page.screenshot({path:'tools/shots/tasks-a/puzzle.png'});
+  const before=await page.locator('.puzzle-tile').evaluateAll(nodes=>nodes.map(node=>(node as HTMLElement).dataset.tile));const first=await page.locator('.puzzle-tile').first().boundingBox();const second=await page.locator('.puzzle-tile').nth(1).boundingBox();if(!first||!second)throw new Error('Не найдены части мозаики');await page.mouse.move(first.x+first.width/2,first.y+first.height/2);await page.mouse.down();await page.mouse.move(second.x+second.width/2,second.y+second.height/2,{steps:5});await page.mouse.up();const after=await page.locator('.puzzle-tile').evaluateAll(nodes=>nodes.map(node=>(node as HTMLElement).dataset.tile));expect(after).not.toEqual(before);
+  for(let slot=0;slot<12;slot+=1){const correct=page.locator(`.puzzle-tile[data-tile="${slot}"]`),correctSlot=await correct.getAttribute('data-slot');if(correctSlot===String(slot))continue;await correct.focus();await page.keyboard.press('Enter');await page.locator(`.puzzle-tile[data-slot="${slot}"]`).focus();await page.keyboard.press('Enter');}
+  await expect(page.locator('.task-result-seal')).toContainText('Печать редакции поставлена');
+});
