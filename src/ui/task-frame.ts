@@ -48,9 +48,10 @@ export class TaskFrame {
     const next = this.hintLevel + 1;
     if (this.hintNote.dataset.confirm !== String(next)) {
       this.hintNote.dataset.confirm = String(next);
-      this.hintNote.textContent = `Свет лампы уменьшит возможную награду на ${hintCostPercent(next, this.cfg.type)}%. Записка останется запечатанной, если лампа погаснет.`;
+      this.hintNote.textContent = `Записка раскроется через миг; награда уменьшится на ${hintCostPercent(next, this.cfg.type)}%.`;
       this.hintButton.textContent = `Записка · −${hintCostPercent(next, this.cfg.type)}%`;
-      return;
+      await new Promise(resolve => window.setTimeout(resolve, 650));
+      if (this.finished || this.hintNote.dataset.confirm !== String(next)) return;
     }
     const text = await this.api.useHint(next);
     if (!text) return;

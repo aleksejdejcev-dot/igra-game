@@ -28,6 +28,23 @@ describe('новые задания выставки',()=>{
    expect(entry.answer.length).toBeGreaterThan(0);
   }
  });
+ it('строит оба кроссворда как одну корректную сеть пересекающихся слов',()=>{
+  for(const crossword of [names,authors]){
+   const belongs=(entry:typeof crossword.entries[number],row:number,col:number)=>Array.from({length:entry.answer.length},(_,i)=>[entry.row+(entry.direction==='down'?i:0),entry.col+(entry.direction==='across'?i:0)]).some(([r,c])=>r===row&&c===col);
+   const crossings=(a:typeof crossword.entries[number],b:typeof crossword.entries[number])=>Array.from({length:a.answer.length},(_,i)=>[a.row+(a.direction==='down'?i:0),a.col+(a.direction==='across'?i:0),a.answer[i]] as const).some(([r,c,l])=>Array.from({length:b.answer.length},(_,j)=>[b.row+(b.direction==='down'?j:0),b.col+(b.direction==='across'?j:0),b.answer[j]] as const).some(([rr,cc,ll])=>r===rr&&c===cc&&l===ll));
+   const connected=new Set<number>([0]);let changed=true;while(changed){changed=false;for(let i=0;i<crossword.entries.length;i++)if(!connected.has(i)&&[...connected].some(j=>crossings(crossword.entries[i],crossword.entries[j]))){connected.add(i);changed=true;}}
+   expect(connected.size).toBe(crossword.entries.length);
+   expect(crossword.grid).toHaveLength(crossword.height);
+   expect(crossword.grid.every(row=>row.length===crossword.width)).toBe(true);
+   for(let row=0;row<crossword.height;row++)for(let col=0;col<crossword.width;col++){
+    const letter=crossword.grid[row][col];if(letter===null)continue;
+    const across=crossword.entries.some(entry=>entry.direction==='across'&&belongs(entry,row,col));
+    const down=crossword.entries.some(entry=>entry.direction==='down'&&belongs(entry,row,col));
+    if(col+1<crossword.width&&crossword.grid[row][col+1]!==null)expect(across&&crossword.entries.some(entry=>entry.direction==='across'&&belongs(entry,row,col+1))).toBe(true);
+    if(row+1<crossword.height&&crossword.grid[row+1][col]!==null)expect(down&&crossword.entries.some(entry=>entry.direction==='down'&&belongs(entry,row+1,col))).toBe(true);
+   }
+  }
+ });
  it('открывает карусель только в сочетании Геллер—Пелевин—Мясоедов',()=>{expect(isCombinationCorrect(['p08','p32','p23'],['p08','p32','p23'])).toBe(true);expect(isCombinationCorrect(['p08','p21','p23'],['p08','p32','p23'])).toBe(false);});
  it('нормализует ё и регистр во всех словесных заданиях',()=>expect(normalizeWord('Фёдоров')).toBe(normalizeWord('ФЕДОРОВ')));
  it('принимает только зоны внутри указанных полигонов',()=>{
