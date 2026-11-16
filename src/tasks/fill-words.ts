@@ -8,9 +8,10 @@ export function createFillWords():TaskModule{return{mount(el,cfg,api){
   mountFrame(el,cfg,api,({frame})=>{
     taskState.attempt=frame.attempt.bind(frame);
     if(cfg.type==='fill-words-monument'){
+      const intro=document.createElement('p');intro.className='monument-intro';intro.textContent='На памятном рельефе собраны деятели эпохи Иоанна. Два отрывка Карамзина связывают названных в них людей с тремя полями.';frame.body.append(intro);
       const image=document.createElement('img');image.className='monument-image';image.alt='Памятник «Тысячелетие России»';image.src=`${import.meta.env.BASE_URL}${String(cfg.image??'assets/tasks/s10_1.webp').replace(/^\//u,'')}`;frame.body.append(image);
       const sources=Array.isArray(cfg.sourceParagraphs)?cfg.sourceParagraphs as Paragraph[]:[];
-      const source=document.createElement('details');source.className='monument-source';const summary=document.createElement('summary');summary.textContent='Листок из исторического тома';source.append(summary);
+      const source=document.createElement('details');source.className='monument-source';source.open=true;const summary=document.createElement('summary');summary.textContent='Два фрагмента Карамзина';source.append(summary);
       sources.forEach(item=>{const p=document.createElement('p');p.textContent=item.text;source.append(p);});frame.body.append(source);
       const fields=document.createElement('div');fields.className='fill-fields';
       const names=Array.isArray(cfg.names)?cfg.names as string[]:['Сильвестр','Анастасия','Адашев'];
@@ -30,11 +31,11 @@ export function createFillWords():TaskModule{return{mount(el,cfg,api){
 },destroy(){}};}
 function addInlineField(parent:HTMLElement,answer:string,index:number,task:{attempt:(ok:boolean)=>void},api:{attempt:(ok:boolean)=>void}):void{
   const input=document.createElement('input');input.className='fill-word';input.maxLength=answer.length;input.size=answer.length;input.autocomplete='off';input.setAttribute('aria-label',`Пропуск ${index+1}, ${answer.length} букв`);
-  const verify=()=>{if(input.disabled)return;const ok=normalizeWord(input.value)===normalizeWord(answer);if(!ok)api.attempt(false);if(ok){input.value=answer;input.disabled=true;input.classList.add('is-correct');}else{input.classList.add('is-wrong');window.setTimeout(()=>input.classList.remove('is-wrong'),350);}if([...parent.closest('.task-content')!.querySelectorAll<HTMLInputElement>('.fill-word')].every(field=>field.disabled))task.attempt(true);};input.addEventListener('change',verify);input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();verify();}});parent.append(input);
+  const verify=(countWrong=true)=>{if(input.disabled||!input.value.trim())return;const ok=normalizeWord(input.value)===normalizeWord(answer);if(!ok){if(countWrong)api.attempt(false);input.classList.add('is-wrong');window.setTimeout(()=>input.classList.remove('is-wrong'),350);return;}input.value=answer;input.disabled=true;input.classList.add('is-correct');if([...parent.closest('.task-content')!.querySelectorAll<HTMLInputElement>('.fill-word')].every(field=>field.disabled))task.attempt(true);};input.addEventListener('change',()=>verify());input.addEventListener('task:restore',()=>verify(false));input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();verify();}});parent.append(input);
 }
 function addField(parent:HTMLElement,answer:string,index:number,task:{attempt:(ok:boolean)=>void},api:{attempt:(ok:boolean)=>void}):void{
   const label=document.createElement('label');label.className='fill-name-field';label.textContent=`Фигура ${index+1}`;
   const input=document.createElement('input');input.maxLength=answer.length;input.style.setProperty('--letter-count',String(answer.length));input.setAttribute('aria-label',`Имя фигуры ${index+1}, ${answer.length} букв`);input.placeholder='—';
-  const verify=()=>{if(input.disabled)return;const ok=normalizeWord(input.value)===normalizeWord(answer);if(!ok)api.attempt(false);if(ok){input.value=answer;input.disabled=true;input.classList.add('is-correct');}else{input.classList.add('is-wrong');window.setTimeout(()=>input.classList.remove('is-wrong'),350);}if([...parent.querySelectorAll<HTMLInputElement>('input')].every(field=>field.disabled))task.attempt(true);};
-  input.addEventListener('change',verify);input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();verify();}});label.append(input);parent.append(label);
+  const verify=(countWrong=true)=>{if(input.disabled||!input.value.trim())return;const ok=normalizeWord(input.value)===normalizeWord(answer);if(!ok){if(countWrong)api.attempt(false);input.classList.add('is-wrong');window.setTimeout(()=>input.classList.remove('is-wrong'),350);return;}input.value=answer;input.disabled=true;input.classList.add('is-correct');if([...parent.querySelectorAll<HTMLInputElement>('input')].every(field=>field.disabled))task.attempt(true);};
+  input.addEventListener('change',()=>verify());input.addEventListener('task:restore',()=>verify(false));input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();verify();}});label.append(input);parent.append(label);
 }

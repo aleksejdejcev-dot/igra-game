@@ -128,8 +128,6 @@
     "doorShape": "rect",
     "frameStyle": "plain",
     "props": [
-      "iconostasis",
-      "lamps",
       "stone"
     ],
     "taskObjects": [
@@ -242,7 +240,6 @@
     "frameStyle": "oak",
     "props": [
       "icons",
-      "lamps",
       "bench"
     ],
     "taskObjects": [
@@ -432,7 +429,6 @@
     "doorShape": "rect",
     "frameStyle": "gilded",
     "props": [
-      "gramophone",
       "record-shelves",
       "art-nouveau",
       "book-covers"

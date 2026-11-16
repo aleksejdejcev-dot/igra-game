@@ -3,7 +3,8 @@ import { readFileSync } from 'node:fs';
 const halls = JSON.parse(readFileSync(new URL('../src/data/halls.json', import.meta.url), 'utf8')) as Array<{ id: string }>;
 
 test('renderer budgets across gallery halls', async ({ page }) => {
-  const save = JSON.stringify({ player: { name: 'Корреспондент' }, unlockedHalls: halls.map(hall => hall.id), solvedTasks: {}, totalScore: 0, visitedPaintings: [], readParagraphs: [] });
+  const solvedTasks = { memo: { points: 100 }, puzzle: { points: 100 } };
+  const save = JSON.stringify({ player: { name: 'Корреспондент' }, unlockedHalls: halls.map(hall => hall.id), solvedTasks, totalScore: 200, visitedPaintings: [], readParagraphs: [] });
   await page.addInitScript(value => localStorage.setItem('closed-exhibition-1898:save-v1', value), save);
   test.setTimeout(240000);
   const measurements: Array<{ hall: string; calls: number; triangles: number; textures: number }> = [];

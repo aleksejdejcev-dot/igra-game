@@ -1,3 +1,7 @@
+import halls from '../data/halls.json';
+import type { Hall } from '../ui/types';
+import { hallsEligibleToUnlock } from './progression';
+
 export interface SolvedTaskState {
   points: number;
   attempts: number;
@@ -32,15 +36,18 @@ function readSavedState(): GameState {
     const saved = parsed as Partial<GameState>;
     const solvedTasks = saved.solvedTasks && typeof saved.solvedTasks === 'object' ? saved.solvedTasks : {};
     const totalScore = Object.values(solvedTasks).reduce((sum, task) => sum + (Number(task?.points) || 0), 0);
-    return {
+    const unlockedHalls = hallsEligibleToUnlock(halls as Hall[], solvedTasks);
+    const state: GameState = {
       player: saved.player && typeof saved.player.name === 'string' ? { name: saved.player.name.slice(0, 60) } : null,
-      unlockedHalls: Array.isArray(saved.unlockedHalls) ? [...new Set(['h01', ...saved.unlockedHalls.filter((id) => typeof id === 'string')])] : ['h01'],
+      unlockedHalls,
       solvedTasks,
       totalScore,
       visitedPaintings: Array.isArray(saved.visitedPaintings) ? saved.visitedPaintings.filter((id) => typeof id === 'string') : [],
       readParagraphs: Array.isArray(saved.readParagraphs) ? saved.readParagraphs.filter((id) => typeof id === 'string') : [],
       finaleResponse: typeof saved.finaleResponse==='string'?saved.finaleResponse:null,
     };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    return state;
   } catch {
     return initialState();
   }
@@ -66,6 +73,12 @@ export class GameStore {
 
   reset(): void {
     this.value = initialState();
+    try {
+      for (let index = localStorage.length - 1; index >= 0; index--) {
+        const key = localStorage.key(index);
+        if (key?.startsWith('closed-exhibition-1898:task-draft:') || key?.startsWith('gallery-crossword:')) localStorage.removeItem(key);
+      }
+    } catch { /* Storage can be disabled. */ }
     this.persist();
     this.notify();
   }

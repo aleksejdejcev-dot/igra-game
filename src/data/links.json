@@ -217,12 +217,12 @@
   },
   {
     "paintingId": "p25",
-    "bookId": "knyaz-serebryanyi",
-    "chapterId": "knyaz-serebryanyi4-002",
-    "paragraphId": "t-knyaz-serebryanyi4-002-0043",
-    "quote": "Все опричники были бледны; никто не решался взглянуть на царя.",
-    "confidence": "medium",
-    "reason": "В эпизоде у Морозова опричники находятся при царе и участвуют в насилии над боярином."
+    "bookId": "karamzin-otryvki-pro-groznogo-5",
+    "chapterId": "karamzin-otryvki-pro-groznogo-5-001",
+    "paragraphId": "t-karamzin-otryvki-pro-groznogo-5-001-0004",
+    "quote": "надел на Федорова царскую одежду и венец, посадил его на трон",
+    "confidence": "high",
+    "reason": "Карамзин прямо описывает, как царь надел на Фёдорова венец и посадил его на трон."
   },
   {
     "bookId": null,
@@ -453,18 +453,18 @@
     "bookId": "karamzin-otryvki-pro-groznogo-5",
     "chapterId": "karamzin-otryvki-pro-groznogo-5-001",
     "paragraphId": "t-karamzin-otryvki-pro-groznogo-5-001-0004",
-    "quote": "надел на Федорова царскую одежду и венец, посадил его на трон, дал ему державу в руку, снял с себя шапку, низко поклонился и сказал: \"Здрав буди, Великий Царь земли Русския! Се при",
+    "quote": "надел на Федорова царскую одежду и венец, посадил его на трон",
     "confidence": "high",
-    "reason": "Фрагмент об обвинении Фёдорова и расправе над ним.",
+    "reason": "Исторический эпизод, на который указывает корона в задании.",
     "taskId": "drag-crown"
   },
   {
     "bookId": "karamzin-otryvki-pro-groznogo-6",
     "chapterId": "karamzin-otryvki-pro-groznogo-6-001",
     "paragraphId": "t-karamzin-otryvki-pro-groznogo-6-001-0011",
-    "quote": "отели изменить России. Там начальствовал добрый Князь Юрий Токмаков и жил славный благочестием отшельник Салос (юродивый) Никола: один счастливым советом, другой счастливою дерзостию спасли город. В С",
+    "quote": "жил славный благочестием отшельник Салос (юродивый) Никола",
     "confidence": "high",
-    "reason": "Карамзин прямо описывает спасение Пскова Николой Салосом.",
+    "reason": "Карамзин называет Николу Салоса в рассказе о спасении Пскова.",
     "taskId": "combo-lock"
   },
   {
@@ -480,7 +480,7 @@
     "bookId": "karamzin-otryvki-pro-groznogo-1",
     "chapterId": "karamzin-otryvki-pro-groznogo-1-001",
     "paragraphId": "t-karamzin-otryvki-pro-groznogo-1-001-0005",
-    "quote": "огда юный Царь трепетал в Воробьевском дворце своем, а добродетельная Анастасия молилась, явился там какой-то удивительный муж именем Сильвестр, саном Иерей, родом из Новагорода; приближился к Иоанну ",
+    "quote": "добродетельная Анастасия молилась, явился там какой-то удивительный муж именем Сильвестр",
     "confidence": "high",
     "reason": "В абзаце названы Анастасия, Сильвестр и Адашев.",
     "taskId": "fill-words-monument"
@@ -516,16 +516,16 @@
     "bookId": "tolstoiak-smert-ioanna-2",
     "chapterId": "tolstoiak-smert-ioanna-2-002",
     "paragraphId": "t-tolstoiak-smert-ioanna-2-002-0275",
-    "quote": "лает знак шуту, который рассматривал разные вещи на столах. Шут берет ящик с шахматами и подносит к Иоанну.",
+    "quote": "Бельский делает знак шуту, который рассматривал разные вещи на столах. Шут берет ящик с шахматами и подносит к Иоанну.",
     "confidence": "high",
-    "reason": "Эпизод начала партии царя с Бельским.",
+    "reason": "В сцене Толстого Бельский подаёт Иоанну шахматный ящик.",
     "taskId": "chess"
   },
   {
     "bookId": "karamzin-otryvki-pro-groznogo-1",
     "chapterId": "karamzin-otryvki-pro-groznogo-1-001",
     "paragraphId": "t-karamzin-otryvki-pro-groznogo-1-001-0005",
-    "quote": "льная Анастасия молилась, явился там какой-то удивительный муж именем Сильвестр, саном Иерей, родом из Новагорода; приближился к Иоанну с подъятым, угрожающим перстом, с видом пророка, и гласом убедит",
+    "quote": "добродетельная Анастасия молилась, явился там какой-то удивительный муж именем Сильвестр",
     "confidence": "high",
     "reason": "Три имени встречаются в подлинном фрагменте Карамзина.",
     "taskId": "fill-words-monument"
@@ -585,5 +585,35 @@
     "quote": "Кровь горячая, молодецкая!",
     "confidence": "high",
     "reason": "Дословная строка либретто для связки литературного сочинения с музыкальной постановкой."
+  },
+  {
+    "paintingId": null,
+    "taskId": "drag-figure",
+    "bookId": "karamzin-istoriya-tom-ix",
+    "chapterId": "karamzin-istoriya-tom-ix-007",
+    "paragraphId": "t-karamzin-istoriya-tom-ix-007-0017",
+    "quote": "спросил шахматную доску и, сидя в халате на постели, сам расставил шашки",
+    "confidence": "medium",
+    "reason": "Источник к изображённой сцене смерти Иоанна; само место для фигурки задаётся картиной, а не текстом."
+  },
+  {
+    "paintingId": null,
+    "taskId": "finale",
+    "bookId": "k-istorii-kartiny-repina",
+    "chapterId": "k-istorii-kartiny-repina-001",
+    "paragraphId": "t-k-istorii-kartiny-repina-001-0010",
+    "quote": "Иван Грозный с убитым сыном",
+    "confidence": "high",
+    "reason": "Редакционный финал возвращает к картине Репина и восприятию Ивана IV."
+  },
+  {
+    "paintingId": null,
+    "taskId": "crossword-authors",
+    "bookId": "knyaz-serebryanyi",
+    "chapterId": "knyaz-serebryanyi4-002",
+    "paragraphId": "t-knyaz-serebryanyi4-002-0043",
+    "quote": "Все опричники были бледны; никто не решался взглянуть на царя.",
+    "confidence": "medium",
+    "reason": "Точная текстовая подсказка к образу опричников в вырезке задания."
   }
 ]

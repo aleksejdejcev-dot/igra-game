@@ -296,3 +296,8 @@ dialog::backdrop { background:#080607e8;backdrop-filter:none; }
 @media(max-width:700px){.finale-painting-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.finale-folders{grid-template-columns:repeat(2,minmax(0,1fr))}.finale-painting{grid-template-rows:76px auto}.finale-painting img{height:76px}}
 
 .poem-sheet-dialog{width:min(760px,94vw);max-height:90vh}.poem-sheet{max-height:72vh;padding:1rem clamp(1.25rem,5vw,3rem);background:#f1e4c8;color:#241b16}.poem-sheet p{margin:.15rem 0;font:19px/1.55 'PT Serif',Georgia,serif}.poem-source{display:block;margin:.4rem auto .9rem}
+
+.split-name-intro,.icon-task-intro,.monument-intro,.connect-pairs-intro,.connect-pairs-status,.finale-assignment-status,.chess-status{max-width:70ch;margin:.7rem auto;text-align:center;line-height:1.5}
+.split-name-card{display:flex;flex-direction:column;gap:.45rem}.split-name-card img{background:#211617}.split-name-caption{min-height:4.5em;margin:0;text-align:center;color:#f1dfbb;font-size:18px;line-height:1.35}.split-name-card h3{margin:.2rem 0}.split-name-source{min-height:44px}.split-name-source:disabled{opacity:.75;cursor:default}
+.icon-drop{display:block;width:100%;min-width:0;padding:.35rem;text-align:center;cursor:crosshair}.icon-drop:focus-visible{outline:3px solid #f2d178;outline-offset:2px}.icon-task-status{min-height:1.5em;margin:.35rem auto;text-align:center;color:#f2dfb9}
+.connect-pairs-status{min-height:1.5em;color:#f1d990}.chess-status{min-height:1.5em;color:#f2dfb9}.finale-assignment-status{padding:.45rem;background:#2b1d1b;border:1px solid #967343}

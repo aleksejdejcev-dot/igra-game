@@ -4,7 +4,10 @@ import { mkdir } from 'node:fs/promises';
 test('лист Репнина находится в комнате, виден с пола и открывает полный текст', async ({ page }) => {
   await mkdir('tools/shots/poem-sheet', { recursive: true });
   await page.addInitScript(() => localStorage.setItem('closed-exhibition-1898:save-v1', JSON.stringify({
-    player: { name: 'Корреспондент' }, unlockedHalls: ['h01', 'h02', 'h03', 'h04'], solvedTasks: {}, totalScore: 0,
+    player: { name: 'Корреспондент' }, unlockedHalls: ['h01', 'h02', 'h03', 'h04'], solvedTasks: {
+      memo: { points: 100, attempts: 1, hintsUsed: 0 }, puzzle: { points: 100, attempts: 1, hintsUsed: 0 },
+      'match-captions': { points: 100, attempts: 1, hintsUsed: 0 }, 'crossword-names': { points: 100, attempts: 1, hintsUsed: 0 },
+    }, totalScore: 400,
     visitedPaintings: [], readParagraphs: [], finaleResponse: null,
   })));
   await page.goto('/?dev=1#hall/h04');

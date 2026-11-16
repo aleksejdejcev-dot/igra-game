@@ -9,7 +9,7 @@ const covers=[
 export function createBookCoverDisplay(baseUrl:string):{group:Group;dispose():void}{
  const group=new Group();group.name='Обложки произведений у доски портретов';const loader=new TextureLoader();const textures:ReturnType<typeof loader.load>[]=[];
  covers.forEach((cover,index)=>{
-  const item=new Group();item.position.set((index-1)*1.52,2.28,0);item.rotation.y=Math.PI;
+  const item=new Group();item.position.set(0,3.35-index*.88,0);item.scale.setScalar(.62);
   const height=1.08,width=Math.min(1.18,height*cover.aspect);const wood=new MeshStandardMaterial({color:'#6d482b',roughness:.48});
   const backing=new Mesh(new BoxGeometry(width+.16,height+.16,.09),wood);item.add(backing);
   const border=new MeshStandardMaterial({color:'#c7a15b',metalness:.7,roughness:.32});

@@ -120,7 +120,7 @@ export function buildHall(ctx:HallBuildContext):BuiltHall {
     const seat=addBox(1.15,.22,.62,0,.72,2.2,panel);addBox(1.12,.95,.18,0,1.2,2.52,wood);addBox(.18,.62,.65,-.48,1.03,2.2,brass);addBox(.18,.62,.65,.48,1.03,2.2,brass);void seat;
   }
   const propKeys=new Set(ctx.hall.props??[]);
-  if(propKeys.has('book-covers')){const display=createBookCoverDisplay(ctx.baseUrl);group.add(display.group);disposeExtras.push(display.dispose);}
+  if(propKeys.has('book-covers')){const display=createBookCoverDisplay(ctx.baseUrl);display.group.position.set(-dims.width/2+.95,0,-dims.depth/2+.25);group.add(display.group);disposeExtras.push(display.dispose);}
   if(propKeys.has('banners'))for(const x of [-dims.width*.28,dims.width*.28]){
     addBox(.72,1.75,.08,x,2.52,-dims.depth/2+.3,new MeshStandardMaterial({color:'#762b35',roughness:.95}));addBox(.84,.06,.16,x,3.43,-dims.depth/2+.22,brass);const tip=new Mesh(new CylinderGeometry(0,.16,.28,4),brass);tip.rotation.z=Math.PI;tip.position.set(x,1.63,-dims.depth/2+.3);group.add(tip);
   }

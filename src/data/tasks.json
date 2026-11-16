@@ -177,17 +177,19 @@
     "type": "split-names",
     "areas": [
       {
-        "paintingId": "p04",
+        "paintingId": "p26",
         "answer": "Островский",
         "given": true
       },
       {
-        "paintingId": "p09",
-        "answer": "Карамзин"
+        "paintingId": "p18",
+        "answer": "Толстой",
+        "sourceParagraphId": "t-tolstoiak-knyaz-repnin-001-0019"
       },
       {
-        "paintingId": "p34",
-        "answer": "Толстой"
+        "paintingId": "p33",
+        "answer": "Карамзин",
+        "sourceParagraphId": "t-karamzin-otryvki-pro-groznogo-1-001-0005"
       }
     ]
   },

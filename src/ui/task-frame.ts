@@ -24,6 +24,7 @@ export class TaskFrame {
   private hintButton: HTMLButtonElement;
   private hintNote: HTMLElement;
   private hintLevel = 0;
+  private pendingHint = 0;
   private finished = false;
 
   constructor(root: HTMLElement, private cfg: TaskConfig, private api: TaskApi, private close: () => void) {
@@ -46,16 +47,15 @@ export class TaskFrame {
   private async revealHint(): Promise<void> {
     if (this.hintLevel >= 3 || this.finished) return;
     const next = this.hintLevel + 1;
-    if (this.hintNote.dataset.confirm !== String(next)) {
-      this.hintNote.dataset.confirm = String(next);
-      this.hintNote.textContent = `Записка раскроется через миг; награда уменьшится на ${hintCostPercent(next, this.cfg.type)}%.`;
-      this.hintButton.textContent = `Записка · −${hintCostPercent(next, this.cfg.type)}%`;
-      await new Promise(resolve => window.setTimeout(resolve, 650));
-      if (this.finished || this.hintNote.dataset.confirm !== String(next)) return;
+    if (this.pendingHint !== next) {
+      this.pendingHint = next;
+      this.hintNote.textContent = `За эту записку награда уменьшится на ${hintCostPercent(next, this.cfg.type)}%. Повторное обращение раскроет её.`;
+      this.hintButton.textContent = `Принять записку · −${hintCostPercent(next, this.cfg.type)}%`;
+      return;
     }
     const text = await this.api.useHint(next);
-    if (!text) return;
-    this.hintLevel = next; this.hintNote.dataset.confirm = '';
+    if (!text) { this.hintNote.textContent = 'В редакционной папке этой записки пока нет.'; this.pendingHint = 0; return; }
+    this.hintLevel = next; this.pendingHint = 0;
     this.hintNote.textContent = text;
     this.hintButton.textContent = this.hintLevel < 3 ? '♧ Следующая записка' : '♧ Записки прочитаны';
     this.hintButton.disabled = this.hintLevel >= 3;

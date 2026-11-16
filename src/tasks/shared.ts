@@ -14,8 +14,7 @@ export function mountFrame(el: HTMLElement, cfg: TaskConfig, api: TaskApi, rende
     if (!saved || field.disabled) return;
     field.value = saved.value;
     if (field instanceof HTMLInputElement && typeof saved.checked === 'boolean') field.checked = saved.checked;
-    field.dispatchEvent(new Event('input', { bubbles: true }));
-    field.dispatchEvent(new Event('change', { bubbles: true }));
+    field.dispatchEvent(new Event('task:restore'));
   });
   const saveFields = () => api.saveDraft({ ...api.loadDraft<Record<string, unknown>>({}),
     fields: [...frame.body.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('input, textarea, select')]
