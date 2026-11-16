@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs';
 type Entry={answer:string;paintingId:string;revealed?:boolean;row:number;col:number;direction:'across'|'down'};
 const sets={
- names:{id:'crossword-names',rows:[['ГРОЗНЫЙ','p03',true],['КОЛЫЧЁВ','p06'],['ОНУФРЕВНА','p15'],['САЛОС','p08'],['МОРОЗОВ','p40'],['ФЁДОРОВ','p25']]},
+ names:{id:'crossword-names',rows:[['ГРОЗНЫЙ','p03',true],['КОЛЫЧЁВ','p06'],['СКУРАТОВ','p40'],['САЛОС','p08'],['МОРОЗОВ','p21'],['ФЁДОРОВ','p25']]},
  authors:{id:'crossword-authors',rows:[['ПУКИРЕВ','p34',true],['НЕВРЕВ','p24'],['НОВОСКОЛЬЦЕВ','p30'],['РЯБУШКИН','p39'],['МЯСОЕДОВ','p23'],['МАКОВСКИЙ','p18'],['ЛЕБЕДЕВ','p10'],['НЕСТЕРОВ','p29']]},
 };
 for(const[name,set]of Object.entries(sets)){
