@@ -100,17 +100,18 @@
     "hints": [
       {
         "level": 1,
-        "text": "Репнинский стих хранит ответы в ритме и рифме."
+        "text": "На полу у пюпитра лежит полный лист стихотворения о Репнине."
       },
       {
         "level": 2,
-        "text": "Князь Серебряный2"
+        "text": "Лист в зале «Опричнина», рядом с рукописным пюпитром."
       },
       {
-        "text": "Стара была его мамка.",
-        "bookId": "knyaz-serebryanyi2",
-        "chapterId": "knyaz-serebryanyi2-002",
-        "paragraphId": "t-knyaz-serebryanyi2-002-0002"
+        "level": 3,
+        "text": "И все подъяли кубки. Не поднял лишь один;",
+        "bookId": "tolstoiak-knyaz-repnin",
+        "chapterId": "tolstoiak-knyaz-repnin-001",
+        "paragraphId": "t-tolstoiak-knyaz-repnin-001-0019"
       }
     ]
   },

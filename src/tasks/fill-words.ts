@@ -17,7 +17,7 @@ export function createFillWords():TaskModule{return{mount(el,cfg,api){
       names.forEach((name,index)=>addField(fields,name,index,taskState,api));frame.body.append(fields);
       return;
     }
-    const title=document.createElement('p');title.className='task-status';title.textContent='Князь Михайло Репнин';frame.body.append(title);
+    const title=document.createElement('p');title.className='task-status';title.textContent='Князь Михайло Репнин';frame.body.append(title);const source=document.createElement('button');source.type='button';source.className='secondary-button poem-source';source.textContent='Лист со стихотворением лежит в зале';source.addEventListener('click',()=>window.dispatchEvent(new CustomEvent('gallery:document',{detail:{id:'repnin-poem'}})));frame.body.append(source);
     const text=document.createElement('div');text.className='poem-text';const words=new Map(blanks.map(blank=>[blank.index,blank.answer]));
     paragraphs.forEach((paragraph,index)=>{
       const line=document.createElement('p');line.dataset.paragraphId=paragraph.id;

@@ -15,10 +15,16 @@ describe('новые задания выставки',()=>{
   for(const item of [...names.entries,...authors.entries])expect(paintings.some(p=>p.id===item.paintingId)).toBe(true);
   for(const item of authors.entries){const painting=paintings.find(p=>p.id===item.paintingId)!;expect(painting.artist.toLocaleUpperCase('ru')).toContain(item.answer);}
   for(const entry of [...names.entries,...authors.entries]){
+   expect(entry.row).toBeGreaterThanOrEqual(0);expect(entry.col).toBeGreaterThanOrEqual(0);
+   expect(entry.row+(entry.direction==='down'?entry.answer.length:0)).toBeLessThanOrEqual((names.entries.includes(entry)?names:authors).height);
+   expect(entry.col+(entry.direction==='across'?entry.answer.length:0)).toBeLessThanOrEqual((names.entries.includes(entry)?names:authors).width);
+   for(let i=0;i<entry.answer.length;i++){const row=entry.row+(entry.direction==='down'?i:0),col=entry.col+(entry.direction==='across'?i:0);expect((names.entries.includes(entry)?names:authors).grid[row][col]).toBe(entry.answer[i]);}
    expect(entry.answer).toMatch(/^[А-ЯЁ]+$/);
    const painting=paintings.find(p=>p.id===entry.paintingId)!;
    if(entry.paintingId==='p03')expect(painting.title.toLocaleUpperCase('ru')).toContain(entry.answer);
    if(['p06','p40','p08','p21','p28'].includes(entry.paintingId))expect(painting.title.toLocaleUpperCase('ru')).toContain(entry.answer==='КОЛЫЧЁВ'?'КОЛЫЧЕВ':entry.answer);
+   if(entry.paintingId==='p06')expect(painting.title.toLocaleUpperCase('ru')).toContain('КОЛЫЧЕВ');
+   if(['p24','p30','p39','p23','p18','p10','p29'].includes(entry.paintingId))expect(painting.artist.toLocaleUpperCase('ru')).toContain(entry.answer);
    expect(entry.answer.length).toBeGreaterThan(0);
   }
  });
