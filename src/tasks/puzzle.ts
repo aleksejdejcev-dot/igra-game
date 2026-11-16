@@ -6,7 +6,8 @@ export function createPuzzle(): TaskModule {
   return { mount(el,cfg,api) {
     const painting=(paintingsData as Painting[]).find(p=>p.id===String(cfg.paintingId??'p36'));
     if(!painting)return;
-    const order=Array.from({length:12},(_,i)=>i).sort(()=>Math.random()-.5);let selected=-1;
+    const restored=api.loadDraft<{order?:number[]}>({});
+    const order=restored.order?.length===12&&new Set(restored.order).size===12&&restored.order.every(value=>Number.isInteger(value)&&value>=0&&value<12)?[...restored.order]:Array.from({length:12},(_,i)=>i).sort(()=>Math.random()-.5);let selected=-1;
     const taskState:{finish:()=>void}={finish:()=>undefined};
     mountFrame(el,cfg,api,({frame})=>{
       taskState.finish=()=>frame.attempt(true);
@@ -22,7 +23,7 @@ export function createPuzzle(): TaskModule {
         tile.addEventListener('click',event=>{if(event.detail!==0)return;if(selected<0){selected=index;draw();return;}if(selected===index){selected=-1;draw();return;}swap(selected,index);});
         grid.append(tile);
       });};
-      const swap=(a:number,b:number)=>{[order[a],order[b]]=[order[b],order[a]];selected=-1;draw();
+      const swap=(a:number,b:number)=>{[order[a],order[b]]=[order[b],order[a]];selected=-1;api.saveDraft({...api.loadDraft<Record<string,unknown>>({}),order:[...order]});draw();
         if(order[a]===a||order[b]===b)playClick();
         if(order.every((value,i)=>value===i)){status.textContent='Мозаика сложилась в картину';taskState.finish();}
         else {api.attempt(false);status.textContent='Два фрагмента поменялись местами';}
