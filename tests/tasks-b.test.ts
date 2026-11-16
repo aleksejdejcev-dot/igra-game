@@ -10,7 +10,7 @@ import tasks from '../src/data/tasks.json';
 
 describe('новые задания выставки',()=>{
  it('содержит обязательные ответы кроссвордов и реальные картинки-подсказки',()=>{
-  expect(names.entries.map(item=>item.answer)).toEqual(['ГРОЗНЫЙ','КОЛЫЧЁВ','СКУРАТОВ','САЛОС','МОРОЗОВ','ФЁДОРОВ']);
+  expect(names.entries.map(item=>item.answer)).toEqual(['ГРОЗНЫЙ','КОЛЫЧЁВ','СКУРАТОВ','САЛОС','МОРОЗОВ','ФИЛИПП']);
   expect(authors.entries.map(item=>item.answer)).toEqual(['ПУКИРЕВ','НЕВРЕВ','НОВОСКОЛЬЦЕВ','РЯБУШКИН','МЯСОЕДОВ','МАКОВСКИЙ','ЛЕБЕДЕВ','НЕСТЕРОВ']);
   for(const item of [...names.entries,...authors.entries])expect(paintings.some(p=>p.id===item.paintingId)).toBe(true);
   for(const item of authors.entries){const painting=paintings.find(p=>p.id===item.paintingId)!;expect(painting.artist.toLocaleUpperCase('ru')).toContain(item.answer);}
