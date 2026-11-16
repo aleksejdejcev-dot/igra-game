@@ -14,6 +14,13 @@ describe('новые задания выставки',()=>{
   expect(authors.entries.map(item=>item.answer)).toEqual(['ПУКИРЕВ','НЕВРЕВ','НОВОСКОЛЬЦЕВ','РЯБУШКИН','МЯСОЕДОВ','МАКОВСКИЙ','ЛЕБЕДЕВ','НЕСТЕРОВ']);
   for(const item of [...names.entries,...authors.entries])expect(paintings.some(p=>p.id===item.paintingId)).toBe(true);
   for(const item of authors.entries){const painting=paintings.find(p=>p.id===item.paintingId)!;expect(painting.artist.toLocaleUpperCase('ru')).toContain(item.answer);}
+  for(const entry of [...names.entries,...authors.entries]){
+   expect(entry.answer).toMatch(/^[А-ЯЁ]+$/);
+   const painting=paintings.find(p=>p.id===entry.paintingId)!;
+   if(entry.paintingId==='p03')expect(painting.title.toLocaleUpperCase('ru')).toContain(entry.answer);
+   if(['p06','p40','p08','p21','p28'].includes(entry.paintingId))expect(painting.title.toLocaleUpperCase('ru')).toContain(entry.answer==='КОЛЫЧЁВ'?'КОЛЫЧЕВ':entry.answer);
+   expect(entry.answer.length).toBeGreaterThan(0);
+  }
  });
  it('открывает карусель только в сочетании Геллер—Пелевин—Мясоедов',()=>{expect(isCombinationCorrect(['p08','p32','p23'],['p08','p32','p23'])).toBe(true);expect(isCombinationCorrect(['p08','p21','p23'],['p08','p32','p23'])).toBe(false);});
  it('нормализует ё и регистр во всех словесных заданиях',()=>expect(normalizeWord('Фёдоров')).toBe(normalizeWord('ФЕДОРОВ')));
