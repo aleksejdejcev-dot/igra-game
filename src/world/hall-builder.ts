@@ -1,5 +1,5 @@
 import {
-  AdditiveBlending, BoxGeometry, BufferGeometry, CanvasTexture, CircleGeometry, CylinderGeometry, DoubleSide, InstancedMesh, Matrix4, Quaternion,
+  AdditiveBlending, BoxGeometry, BufferGeometry, CanvasTexture, CircleGeometry, ConeGeometry, CylinderGeometry, DoubleSide, InstancedMesh, Matrix4, Quaternion,
   ExtrudeGeometry, Group, HemisphereLight, Mesh, MeshBasicMaterial, MeshStandardMaterial,
   Float32BufferAttribute, PlaneGeometry, PointLight, Points, PointsMaterial, RepeatWrapping, SRGBColorSpace, Shape,
   SphereGeometry, Vector3,
@@ -102,7 +102,17 @@ export function buildHall(ctx:HallBuildContext):BuiltHall {
   const taskObjectIds=new Set((ctx.hall.taskObjects??[]).map(item=>item.taskId));
   hallTasks.filter(task=>!taskObjectIds.has(task.id)).forEach((task,index)=>{const x=-dims.width/2+dims.width*(index+1)/(hallTasks.length+1);const table=addBox(.72,.62,.56,x,.31,1.65,wood);table.userData.name='Игровой столик';table.userData.interaction={type:'task',id:task.id,label:'Игровой столик',onInteract:ctx.onInteract};colliders.push({minX:x-.4,maxX:x+.4,minZ:1.32,maxZ:1.98});});
   for(const config of ctx.hall.taskObjects??[]){const task=ctx.tasks.find(item=>item.id===config.taskId);if(!task)continue;const builtTask=buildTaskObject(config,task,ctx.onInteract);if(!builtTask)continue;group.add(builtTask.group);interactives.push(builtTask.group);colliders.push(builtTask.collider);}
-  if(ctx.hall.id==='h04'){const sheet=new Group();sheet.name='Лист со стихотворением Репнина';const paperMat=new MeshStandardMaterial({color:'#e8d6ad',roughness:.96,side:DoubleSide});const leaf=new Mesh(new PlaneGeometry(.92,.62),paperMat);leaf.rotation.x=-Math.PI/2;leaf.position.set(1.25,.035,2.5);sheet.add(leaf);const trim=new Mesh(new BoxGeometry(.98,.025,.68),new MeshStandardMaterial({color:'#997343',roughness:.6}));trim.position.set(1.25,.02,2.5);sheet.add(trim);sheet.position.x=ctx.centerX;sheet.userData.name=sheet.name;sheet.userData.interaction={type:'document',id:'repnin-poem',label:'Лист со стихотворением князя Репнина',onInteract:ctx.onInteract};group.add(sheet);interactives.push(sheet);}
+  if(ctx.hall.id==='h04'){
+    const sheet=new Group();sheet.name='Лист со стихотворением Репнина';const x=-1.5,z=-2.5,tilt=.38;
+    const backing=new Mesh(new BoxGeometry(1.34,.035,.68),new MeshStandardMaterial({color:'#a98043',metalness:.38,roughness:.46}));backing.rotation.x=tilt;backing.position.set(x,.15,z);sheet.add(backing);
+    const paperMat=new MeshStandardMaterial({color:'#f2dfb4',roughness:.96,side:DoubleSide});const leaf=new Mesh(new PlaneGeometry(1.25,.62),paperMat);leaf.rotation.x=-Math.PI/2+tilt;leaf.position.set(x,.174,z+.01);sheet.add(leaf);
+    const ink=new MeshStandardMaterial({color:'#783b35',roughness:.8});for(let i=0;i<5;i++){const line=new Mesh(new BoxGeometry(.78-(i%2)*.12,.006,.012),ink);const lineZ=-.16+i*.08;line.rotation.x=tilt;line.position.set(x-.05,.175-lineZ*Math.sin(tilt),z+.01+lineZ*Math.cos(tilt));sheet.add(line);}
+    const seal=new Mesh(new CircleGeometry(.075,20),new MeshStandardMaterial({color:'#8d3836',roughness:.74}));seal.rotation.x=-Math.PI/2+tilt;seal.position.set(x+.46,.175-.18*Math.sin(tilt),z+.01+.18*Math.cos(tilt));sheet.add(seal);
+    const quill=new Mesh(new CylinderGeometry(.018,.034,.48,8),new MeshStandardMaterial({color:'#7f292c',roughness:.64,metalness:.08}));quill.position.set(x-.47,.25,z+.18);quill.rotation.z=-.16;sheet.add(quill);const quillNib=new Mesh(new ConeGeometry(.035,.12,8),new MeshStandardMaterial({color:'#bd9654',metalness:.6,roughness:.35}));quillNib.position.set(x-.43,.54,z+.18);quillNib.rotation.z=-.16;sheet.add(quillNib);
+    const trailMat=new MeshStandardMaterial({color:'#d0a354',metalness:.7,roughness:.36,emissive:'#8a5a20',emissiveIntensity:.18});
+    for(let i=0;i<8;i++){const t=i/7;const stud=new Mesh(new CircleGeometry(.045-i*.002,12),trailMat);stud.rotation.x=-Math.PI/2;stud.position.set(-1.5*t,.012,1.35-3.85*t);sheet.add(stud);}
+    sheet.userData.name=sheet.name;sheet.userData.interaction={type:'document',id:'repnin-poem',label:'Стихотворный лист на золотистой подкладке у следа латунных гвоздиков',onInteract:ctx.onInteract};group.add(sheet);interactives.push(sheet);
+  }
 
   // Small built-in alcove and a velvet bench differ by hall style and remain low-cost primitives.
   if(ctx.hall.props?.includes('throne')){
