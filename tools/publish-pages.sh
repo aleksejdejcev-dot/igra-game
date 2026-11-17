@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-REPO=aleksejdejcev-dot/igra-game
+REPO=igrahystory/igrahystory.github.io
 
 if [ "$(git branch --show-current)" != "main" ]; then
   echo "Переключитесь на ветку main"; exit 1
@@ -22,4 +22,4 @@ gh workflow run pages.yml --repo "$REPO"
 sleep 5
 RUN_ID=$(gh run list --repo "$REPO" --workflow pages.yml --limit 1 --json databaseId -q '.[0].databaseId')
 gh run watch "$RUN_ID" --repo "$REPO" --exit-status
-echo "Готово: https://aleksejdejcev-dot.github.io/igra-game/"
+echo "Готово: https://igrahystory.github.io/"
