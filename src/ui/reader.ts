@@ -18,6 +18,22 @@ export interface ReaderScene {
   imageAlt: string;
 }
 
+export function dedupeSceneHeadings(scenes: ReaderScene[], preferredPaintingId?: string): ReaderScene[] {
+  const unique: ReaderScene[] = [];
+  const positions = new Map<string, number>();
+  for (const scene of scenes) {
+    const key = JSON.stringify([scene.paragraphId, scene.anchorQuote?.trim() ?? '', scene.headingText.trim()]);
+    const existingIndex = positions.get(key);
+    if (existingIndex === undefined) {
+      positions.set(key, unique.length);
+      unique.push(scene);
+    } else if (scene.paintingId === preferredPaintingId) {
+      unique[existingIndex] = scene;
+    }
+  }
+  return unique;
+}
+
 export function paginateParagraphs(
   paragraphs: ReaderParagraph[],
   limit = 1200,
@@ -106,6 +122,7 @@ export class Reader {
   private readonly onKeyDown: (event: KeyboardEvent) => void;
 
   constructor(private options: ReaderOptions) {
+    this.options.scenes = dedupeSceneHeadings(options.scenes ?? [], options.targetPaintingId);
     this.book = options.index.books.find((book) => book.id === options.bookId)
       ?? options.index.books.find((book) => book.chapters.some((chapter) => chapter.id === options.chapterId));
     this.chapters = this.book?.chapters ?? [];

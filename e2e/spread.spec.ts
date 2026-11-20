@@ -48,11 +48,7 @@ test('разворот показывает источники, листаетс
       .sort((a, b) => Number(a.paintingId?.slice(1)) - Number(b.paintingId?.slice(1)));
     if (sameSceneLinks.length > 1) {
       const headingsInOrder = await dialog.locator('.reader-page').evaluate((pageNode) => [...pageNode.querySelectorAll<HTMLElement>('.scene-heading')].map((heading) => heading.dataset.scenePainting));
-      const expectedIds = sameSceneLinks.map((scene) => scene.paintingId);
-      const positions = expectedIds.map((id) => headingsInOrder.indexOf(id));
-      expect(positions.every((position) => position >= 0)).toBe(true);
-      expect(positions).toEqual([...positions].sort((a, b) => a - b));
-      expect(positions.at(-1)! - positions[0]).toBe(expectedIds.length - 1);
+      expect(headingsInOrder.filter((id) => sameSceneLinks.some((scene) => scene.paintingId === id))).toEqual([link.paintingId]);
     }
     await expect(dialog.locator('.spread-caption')).not.toBeEmpty();
     expect(await page.evaluate((id) => JSON.parse(localStorage.getItem('closed-exhibition-1898:save-v1')!).readParagraphs.includes(id), link.paragraphId!)).toBe(true);

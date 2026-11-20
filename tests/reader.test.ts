@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import links from '../src/data/links.json';
 import textIndex from '../src/data/texts/texts-index.json';
-import { paginateParagraphs, type ReaderParagraph, type ReaderScene } from '../src/ui/reader';
+import { dedupeSceneHeadings, paginateParagraphs, type ReaderParagraph, type ReaderScene } from '../src/ui/reader';
 
 const chapters = import.meta.glob('../src/data/texts/*.json', { eager: true, import: 'default' }) as Record<string, { paragraphs: ReaderParagraph[] }>;
 
@@ -66,6 +66,29 @@ describe('страницы книги', () => {
       const link = links.find((entry) => entry.paintingId === paintingId);
       expect(link?.confidence).toBe('medium');
       expect(link?.quote).toBeTruthy();
+    }
+  });
+
+  it('показывает один заголовок для общей сцены и сохраняет миниатюру открытой картины', () => {
+    const duplicates = new Map<string, ReaderScene[]>();
+    for (const link of links.filter((entry) => entry.paintingId && ['high', 'medium'].includes(entry.confidence))) {
+      const key = JSON.stringify([link.chapterId, link.paragraphId, link.anchorQuote ?? '', link.headingText ?? '']);
+      const scenes = duplicates.get(key) ?? [];
+      scenes.push({
+        paintingId: link.paintingId!, paragraphId: link.paragraphId!,
+        endParagraphId: link.endParagraphId ?? link.paragraphId!, anchorQuote: link.anchorQuote,
+        headingText: link.headingText ?? '', chapterTitle: '', sourceText: '', imageSrc: '', imageAlt: '',
+      });
+      duplicates.set(key, scenes);
+    }
+
+    const repeatedScenes = [...duplicates.values()].filter((scenes) => scenes.length > 1);
+    expect(repeatedScenes.length).toBeGreaterThan(0);
+    for (const scenes of repeatedScenes) {
+      const preferred = scenes.at(-1)!.paintingId;
+      const unique = dedupeSceneHeadings(scenes, preferred);
+      expect(unique).toHaveLength(1);
+      expect(unique[0].paintingId).toBe(preferred);
     }
   });
 });
