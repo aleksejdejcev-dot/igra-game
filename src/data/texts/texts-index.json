@@ -260,70 +260,9 @@
       ]
     },
     {
-      "id": "karamzin-istoriya-tom-ix",
-      "title": "Карамзин_История_том_IX",
-      "chapters": [
-        {
-          "id": "karamzin-istoriya-tom-ix-001",
-          "title": "Глава I. Продолжение царствования Иоанна Грозного. Годы 1560—1564",
-          "neededInGame": false
-        },
-        {
-          "id": "karamzin-istoriya-tom-ix-002",
-          "title": "Глава II. Продолжение царствования Иоанна Грозного. Годы 1563—1569",
-          "neededInGame": true
-        },
-        {
-          "id": "karamzin-istoriya-tom-ix-003",
-          "title": "Глава III. Продолжение царствования Иоанна Грозного. Годы 1569—1572",
-          "neededInGame": true
-        },
-        {
-          "id": "karamzin-istoriya-tom-ix-004",
-          "title": "Глава IV. Продолжение царствования Иоанна Грозного. Годы 1572—1577",
-          "neededInGame": true
-        },
-        {
-          "id": "karamzin-istoriya-tom-ix-005",
-          "title": "Глава V. Продолжение царствования Иоанна Грозного. Годы 1577—1582",
-          "neededInGame": true
-        },
-        {
-          "id": "karamzin-istoriya-tom-ix-006",
-          "title": "Глава VI. Первое завоевание Сибири. Годы 1581—1584",
-          "neededInGame": false
-        },
-        {
-          "id": "karamzin-istoriya-tom-ix-007",
-          "title": "Глава VII. Продолжение царствования Иоанна Грозного. Годы 1582—1584",
-          "neededInGame": true
-        }
-      ]
-    },
-    {
       "id": "karamzin-istoriya-tom-viii",
       "title": "Карамзин_История_том_VIII",
       "chapters": [
-        {
-          "id": "karamzin-istoriya-tom-viii-001",
-          "title": "Глава I. Великий князь и царь Иоанн IV Васильевич. Годы 1533—1538",
-          "neededInGame": false
-        },
-        {
-          "id": "karamzin-istoriya-tom-viii-002",
-          "title": "Глава II. Продолжение государствования Иоанна IV. Годы 1538—1546",
-          "neededInGame": false
-        },
-        {
-          "id": "karamzin-istoriya-tom-viii-003",
-          "title": "Глава III. Продолжение государствования Иоанна IV. Годы 1546—1552",
-          "neededInGame": true
-        },
-        {
-          "id": "karamzin-istoriya-tom-viii-004",
-          "title": "Глава IV. Продолжение государствования Иоанна IV. Год 1552",
-          "neededInGame": true
-        },
         {
           "id": "karamzin-istoriya-tom-viii-005",
           "title": "Глава V. Продолжение государствования Иоанна IV. Годы 1552—1560",
@@ -1062,6 +1001,151 @@
           "id": "kupets-kalashnikov-libretto-007",
           "title": "Действие третье",
           "neededInGame": false
+        }
+      ]
+    },
+    {
+      "id": "sp-04",
+      "title": "К истории картины Репина",
+      "chapters": [
+        {
+          "id": "sp-04-001",
+          "title": "Отрывок",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-05",
+      "title": "Карамзин отрывки про Грозного-1",
+      "chapters": [
+        {
+          "id": "sp-05-001",
+          "title": "О пожаре 1547 года",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-09",
+      "title": "Карамзин отрывки про Грозного-5",
+      "chapters": [
+        {
+          "id": "sp-09-001",
+          "title": "Убийство боярина Фёдорова и продолжение истории Филиппа",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-10",
+      "title": "Карамзин отрывки про Грозного-6",
+      "chapters": [
+        {
+          "id": "sp-10-001",
+          "title": "Погром Новгорода, смерть Филиппа, Никола Салос",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-11",
+      "title": "Карамзин отрывки про Грозного-7",
+      "chapters": [
+        {
+          "id": "sp-11-001",
+          "title": "Убийство сына",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-12",
+      "title": "Карамзин отрывки про Грозного-8",
+      "chapters": [
+        {
+          "id": "sp-12-001",
+          "title": "Смерть Ивана IV",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-15",
+      "title": "Князь Серебряный2",
+      "chapters": [
+        {
+          "id": "sp-15-001",
+          "title": "Отрывок",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-16",
+      "title": "Князь Серебряный3",
+      "chapters": [
+        {
+          "id": "sp-16-001",
+          "title": "Отрывок",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-17",
+      "title": "Князь Серебряный4",
+      "chapters": [
+        {
+          "id": "sp-17-001",
+          "title": "Отрывок",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-21",
+      "title": "ТолстойАК Князь Репнин",
+      "chapters": [
+        {
+          "id": "sp-21-001",
+          "title": "Отрывок",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "sp-23",
+      "title": "ТолстойАК Смерть Иоанна 2",
+      "chapters": [
+        {
+          "id": "sp-23-001",
+          "title": "Отрывок",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "karamzin-viii-short-episodes",
+      "title": "Н. М. Карамзин. История государства Российского, том VIII — избранные эпизоды",
+      "sourceUrl": "https://ru.wikisource.org/wiki/История_государства_Российского_(Карамзин)/Том_VIII",
+      "chapters": [
+        {
+          "id": "karamzin-viii-short-episodes-001",
+          "title": "Казань и Земский собор",
+          "neededInGame": true
+        }
+      ]
+    },
+    {
+      "id": "karamzin-ix-short-episodes",
+      "title": "Н. М. Карамзин. История государства Российского, том IX — избранные эпизоды",
+      "sourceUrl": "https://ru.wikisource.org/wiki/История_государства_Российского_(Карамзин)/Том_IX",
+      "chapters": [
+        {
+          "id": "karamzin-ix-short-episodes-001",
+          "title": "Опричнина, двор и посольство Ермака",
+          "neededInGame": true
         }
       ]
     }

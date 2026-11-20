@@ -70,6 +70,7 @@ const manifestBooks = isObject(manifest) && Array.isArray(manifest.books)
   : [];
 const indexBookIds = new Set<string>();
 const indexChapterIds = new Set<string>();
+const indexChapterTitles = new Map<string, string>();
 const manifestChapterIds = new Set<string>();
 const manifestParagraphIds = new Set<string>();
 
@@ -94,6 +95,7 @@ for (const book of indexBooks) {
     if (indexChapterIds.has(id)) errors.push(`Повторяется id главы: ${id}`);
     indexChapterIds.add(id);
     if (typeof chapter.title !== 'string' || !chapter.title.trim()) errors.push(`У главы ${id} нет заголовка.`);
+    else indexChapterTitles.set(id, chapter.title.trim());
   }
 }
 
@@ -243,6 +245,45 @@ if (!Array.isArray(paintings) || !Array.isArray(links)) {
         errors.push(`Связь №${index + 1}: headingText должен быть непустой строкой.`);
       }
       const chapterId = typeof entry.chapterId === 'string' ? entry.chapterId : '';
+      const painting = paintings.find((item) => isObject(item) && item.id === entry.paintingId);
+      const headingText = typeof entry.headingText === 'string' ? entry.headingText.trim() : '';
+      if (['high', 'medium'].includes(String(entry.confidence)) && !headingText) {
+        errors.push(`Связь ${String(entry.paintingId)}: для high/medium нужен headingText или явный заголовок главы.`);
+      }
+      if (headingText) {
+        if (typeof painting === 'object' && painting !== null) {
+          const captionTerms = [painting.title, painting.artist, painting.artistShort].filter((item): item is string => typeof item === 'string' && item.trim().length > 2);
+          for (const term of captionTerms) if (headingText.toLocaleLowerCase('ru').includes(term.toLocaleLowerCase('ru'))) {
+            errors.push(`Связь ${String(entry.paintingId)}: headingText повторяет подпись картины (${term}).`);
+          }
+        }
+        if (entry.headingSource === 'chapter-title') {
+          const indexedTitle = indexChapterTitles.get(chapterId);
+          const chapterFile = path.join(dataRoot, `texts/${chapterId}.json`);
+          const rawChapter = existsSync(chapterFile) ? readJson(chapterFile) : null;
+          const sourceTitle = isObject(rawChapter) && typeof rawChapter.title === 'string' ? rawChapter.title.trim() : '';
+          if (entry.headingRef !== chapterId || ![indexedTitle, sourceTitle].includes(headingText)) {
+            errors.push(`Связь ${String(entry.paintingId)}: chapter-title должен точно совпадать с заголовком главы и ссылаться на неё.`);
+          }
+        } else if (entry.headingSource === 'verbatim-phrase') {
+          const sourceText = chapterTexts.get(entry.headingRef as string);
+          const normalizedHeading = headingText.replace(/[.,;:!?]+$/u, '').trim();
+          const wordCount = normalizedHeading.split(/\s+/u).filter(Boolean).length;
+          const firstLetter = normalizedHeading.slice(0, 1);
+          const candidates = [normalizedHeading, firstLetter.toLocaleLowerCase('ru') + normalizedHeading.slice(1)];
+          if (entry.headingRef !== entry.paragraphId || wordCount < 3 || wordCount > 8 || !sourceText || !candidates.some((candidate) => sourceText.includes(candidate))) {
+            errors.push(`Связь ${String(entry.paintingId)}: verbatim-phrase должен быть точной фразой из 3–8 слов в указанном абзаце.`);
+          }
+          const anchorNormalized = typeof entry.anchorQuote === 'string' ? entry.anchorQuote.replace(/[.,;:!?]+$/u, '').trim() : '';
+          const anchorForms = [anchorNormalized, anchorNormalized.slice(0, 1).toLocaleUpperCase('ru') + anchorNormalized.slice(1)];
+          if (typeof entry.anchorQuote !== 'string' || !sourceText?.includes(entry.anchorQuote)
+            || !anchorForms.some((candidate) => candidate === normalizedHeading)) {
+            errors.push(`Связь ${String(entry.paintingId)}: anchorQuote для verbatim-phrase отсутствует в исходном абзаце.`);
+          }
+        } else {
+          errors.push(`Связь ${String(entry.paintingId)}: headingSource должен быть chapter-title или verbatim-phrase.`);
+        }
+      }
       const order = chapterParagraphOrder.get(chapterId);
       const startIndex = order?.indexOf(entry.paragraphId) ?? -1;
       const endParagraphId = entry.endParagraphId === undefined ? entry.paragraphId : entry.endParagraphId;

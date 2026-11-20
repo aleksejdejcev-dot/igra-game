@@ -11,6 +11,9 @@ export interface ReaderScene {
   endParagraphId: string;
   anchorQuote?: string;
   headingText: string;
+  chapterTitle: string;
+  headingSource?: 'chapter-title' | 'verbatim-phrase';
+  sourceText: string;
   imageSrc: string;
   imageAlt: string;
 }
@@ -39,8 +42,7 @@ export function paginateParagraphs(
       const index = scene.anchorQuote ? paragraph.text.indexOf(scene.anchorQuote) : 0;
       return index < 0 ? 0 : index;
     });
-    // Несколько полотен одной сцены получают подряд стоящие заголовки у её первого якоря.
-    const sceneStarts = sceneOffsets.length ? [Math.min(...sceneOffsets)] : [];
+    const sceneStarts = [...new Set(sceneOffsets)].sort((a, b) => a - b);
     for (const word of words) {
       while (sceneStarts.some((sceneStart) => sceneStart >= offset && sceneStart < offset + word.length)) {
         const sceneStart = sceneStarts.find((candidate) => candidate >= offset && candidate < offset + word.length)!;
@@ -230,19 +232,28 @@ export class Reader {
       heading.className = 'scene-heading';
       heading.dataset.scenePainting = scene.paintingId;
       const image = document.createElement('img');
-      image.src = scene.imageSrc;
-      image.alt = scene.imageAlt;
-      image.loading = 'lazy';
+      if (scene.headingText) {
+        image.src = scene.imageSrc;
+        image.alt = scene.imageAlt;
+        image.loading = 'lazy';
+      }
+      const copy = document.createElement('span');
+      copy.className = 'scene-heading-copy';
       const text = document.createElement('span');
-      text.textContent = scene.headingText;
-      heading.append(image, text);
+      text.className = 'scene-heading-title';
+      text.textContent = scene.headingText || scene.chapterTitle;
+      const source = document.createElement('small');
+      source.className = 'scene-heading-source';
+      source.textContent = scene.sourceText;
+      copy.append(text, source);
+      if (scene.headingText) heading.append(image);
+      heading.append(copy);
       this.pageNode.append(heading);
     };
     for (const segment of page?.segments ?? []) {
       const sourceParagraph = paragraphs.find((item) => item.id === segment.paragraphId);
       const paragraphScenes = (this.options.scenes ?? []).filter((scene) => scene.paragraphId === segment.paragraphId);
-      const headingOffset = paragraphScenes.length ? Math.min(...paragraphScenes.map(sceneStart)) : -1;
-      const starts = paragraphScenes.map((scene) => ({ scene, offset: headingOffset }))
+      const starts = paragraphScenes.map((scene) => ({ scene, offset: sceneStart(scene) }))
         .filter(({ offset }) => offset >= segment.start && offset < segment.end);
       const boundaries = [...new Set(starts.map((item) => item.offset)), segment.end].sort((a, b) => a - b);
       let cursor = segment.start;

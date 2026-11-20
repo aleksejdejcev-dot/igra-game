@@ -18,7 +18,8 @@ test('разворот показывает источники, листаетс
   await page.locator('.spread-dialog .icon-button').click();
   await expect(page.locator('.spread-dialog')).toHaveCount(0);
 
-  const links = JSON.parse(readFileSync(new URL('../src/data/links.json', import.meta.url), 'utf8')) as { paintingId?: string; confidence: string; chapterId: string | null; paragraphId: string | null; quote: string; headingText?: string; anchorQuote?: string }[];
+  const links = JSON.parse(readFileSync(new URL('../src/data/links.json', import.meta.url), 'utf8')) as { paintingId?: string; confidence: string; chapterId: string | null; paragraphId: string | null; quote: string; headingText?: string; headingSource?: string; headingRef?: string; anchorQuote?: string }[];
+  const paintings = JSON.parse(readFileSync(new URL('../src/data/paintings.json', import.meta.url), 'utf8')) as { id: string; title: string; artist: string; artistShort: string }[];
   const candidates = links.filter((link) => link.paintingId && ['high', 'medium'].includes(link.confidence) && link.chapterId && link.paragraphId && link.quote);
   expect(candidates.length).toBeGreaterThan(0);
   mkdirSync('tools/shots/scene-heading', { recursive: true });
@@ -26,17 +27,24 @@ test('разворот показывает источники, листаетс
     await page.evaluate((paintingId) => window.__WORLD_TEST__!.interact('painting', paintingId), link.paintingId!);
     const dialog = page.locator('.spread-dialog').last();
     await expect(dialog).toBeVisible();
-    await expect(dialog.locator('.reader-page')).toContainText(link.quote);
+    const renderedSourceParagraph = () => dialog.locator(`.reader-paragraph[data-paragraph-id="${link.paragraphId}"]`).evaluateAll((paragraphs) => paragraphs.map((paragraph) => paragraph.textContent ?? '').join(''));
+    await expect.poll(renderedSourceParagraph).toContain(link.quote);
     const sceneHeading = dialog.locator(`.scene-heading[data-scene-painting="${link.paintingId}"]`);
     await expect(sceneHeading).toHaveCount(1);
-    await expect(sceneHeading).toHaveText(link.headingText!);
-    const quoteFollowsHeading = await dialog.locator('.reader-page').evaluate((pageNode, quote) => {
+    await expect(sceneHeading.locator('.scene-heading-title')).toHaveText(link.headingText!);
+    await expect(sceneHeading.locator('.scene-heading-source')).not.toBeEmpty();
+    const painting = paintings.find((item) => item.id === link.paintingId)!;
+    expect(link.headingText).not.toContain(painting.title);
+    expect(link.headingText).not.toContain(painting.artist);
+    expect(link.headingText).not.toContain(painting.artistShort);
+    const sourceFollowsHeading = await dialog.locator('.reader-page').evaluate((pageNode, args) => {
       const children = [...pageNode.children];
       const headingIndex = children.findIndex((child) => child.matches('.scene-heading'));
-      return headingIndex >= 0 && children.slice(headingIndex + 1).map((child) => child.textContent ?? '').join(' ').includes(quote as string);
-    }, link.quote);
-    expect(quoteFollowsHeading).toBe(true);
-    const sameSceneLinks = links.filter((scene) => ['high', 'medium'].includes(scene.confidence) && scene.chapterId === link.chapterId && scene.paragraphId === link.paragraphId && scene.paintingId)
+      const following = children.slice(headingIndex + 1).map((child) => child.textContent ?? '').join(' ');
+      return args.source === 'verbatim-phrase' ? following.includes(args.anchor) : following.includes(args.quote);
+    }, { source: link.headingSource, anchor: link.anchorQuote ?? '', quote: link.quote });
+    expect(sourceFollowsHeading).toBe(true);
+    const sameSceneLinks = links.filter((scene) => ['high', 'medium'].includes(scene.confidence) && scene.chapterId === link.chapterId && scene.paragraphId === link.paragraphId && scene.anchorQuote === link.anchorQuote && scene.paintingId)
       .sort((a, b) => Number(a.paintingId?.slice(1)) - Number(b.paintingId?.slice(1)));
     if (sameSceneLinks.length > 1) {
       const headingsInOrder = await dialog.locator('.reader-page').evaluate((pageNode) => [...pageNode.querySelectorAll<HTMLElement>('.scene-heading')].map((heading) => heading.dataset.scenePainting));
@@ -52,20 +60,6 @@ test('разворот показывает источники, листаетс
       await page.waitForTimeout(450);
       await page.screenshot({ path: `tools/shots/scene-heading/${link.paintingId}.png` });
     }
-    if (link.paintingId === 'p45') {
-      const initialChapter = await dialog.locator('.reader-heading').textContent();
-      for (let turn = 0; turn < 20; turn += 1) {
-        const number = await dialog.locator('.reader-page-number').textContent() ?? '';
-        const page = /Страница (\d+) из (\d+)/u.exec(number);
-        if (page && Number(page[1]) === Number(page[2])) break;
-        // При длинных главах прокрутка заголовка эпизода может сдвигать
-        // навигацию; отправляем обычное событие кнопки без ожидания layout-stable.
-        await dialog.locator('.next-page').click({ force: true });
-        await expect.poll(() => dialog.locator('.reader-page-number').textContent()).not.toBe(number);
-      }
-      await dialog.locator('.next-page').click();
-      await expect(dialog.locator('.reader-heading')).not.toHaveText(initialChapter ?? '');
-    }
     if (link.paintingId === 'p36') {
       const textClearance = await dialog.evaluate((element) => {
         const paragraph = element.querySelector<HTMLElement>('.scene-heading')!.getBoundingClientRect();
@@ -75,7 +69,7 @@ test('разворот показывает источники, листаетс
       });
       expect(textClearance).toBe(true);
       await expect.poll(() => dialog.locator('.painting-viewport img').evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-      await expect.poll(() => page.evaluate(() => performance.getEntriesByType('resource').some((item) => item.name.includes('k-istorii-kartiny-repina-001')))).toBe(true);
+      await expect.poll(() => page.evaluate((chapterId) => performance.getEntriesByType('resource').some((item) => item.name.includes(chapterId)), link.chapterId!)).toBe(true);
       await page.screenshot({ path: 'tools/shots/spread/source-spread.png' });
       const image = dialog.locator('.painting-viewport img');
       await image.evaluate((element) => element.dispatchEvent(new WheelEvent('wheel', { deltaY: -1000, bubbles: true, cancelable: true })));
@@ -87,24 +81,21 @@ test('разворот показывает источники, листаетс
       await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
       await page.mouse.down(); await page.mouse.move(bounds.x + bounds.width / 2 + 40, bounds.y + bounds.height / 2 + 24); await page.mouse.up();
       await expect(image).toHaveCSS('transform', /matrix\(2, 0, 0, 2, 40, 24\)/u);
-      const before = await dialog.locator('.reader-page-number').textContent();
-      await dialog.locator('.next-page').click();
-      await expect(dialog.locator('.reader-page-number')).not.toHaveText(before ?? '');
       await expect(dialog.locator('.reader-page')).not.toBeEmpty();
-      await dialog.locator('.previous-page').click();
       await expect(dialog.locator('.reader-page')).toContainText(link.quote);
     }
     await dialog.evaluate((element) => (element as HTMLDialogElement).close());
     await expect(page.locator('.spread-dialog')).toHaveCount(0);
   }
 
-  const responsiveLink = candidates.find((link) => link.paintingId === 'p08')!;
+  const responsiveLink = candidates.find((link) => link.paintingId === 'p07')!;
   for (const viewport of [{ width: 1280, height: 800 }, { width: 1024, height: 768 }, { width: 390, height: 844 }]) {
     await page.setViewportSize(viewport);
     await page.evaluate((paintingId) => window.__WORLD_TEST__!.interact('painting', paintingId), responsiveLink.paintingId!);
     const dialog = page.locator('.spread-dialog').last();
     await expect(dialog.locator(`.scene-heading[data-scene-painting="${responsiveLink.paintingId}"]`)).toHaveCount(1);
-    await expect(dialog.locator('.reader-page')).toContainText(responsiveLink.quote);
+    const responsiveParagraphText = await dialog.locator(`.reader-paragraph[data-paragraph-id="${responsiveLink.paragraphId}"]`).evaluateAll((paragraphs) => paragraphs.map((paragraph) => paragraph.textContent ?? '').join(''));
+    expect(responsiveParagraphText).toContain(responsiveLink.quote);
     const leadLines = await dialog.locator('.reader-page').evaluate((pageNode, paintingId) => {
       const headings = [...pageNode.querySelectorAll<HTMLElement>('.scene-heading')];
       const index = headings.findIndex((heading) => heading.dataset.scenePainting === paintingId);

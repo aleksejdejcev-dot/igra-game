@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import links from '../src/data/links.json';
+import textIndex from '../src/data/texts/texts-index.json';
 import { paginateParagraphs, type ReaderParagraph, type ReaderScene } from '../src/ui/reader';
 
 const chapters = import.meta.glob('../src/data/texts/*.json', { eager: true, import: 'default' }) as Record<string, { paragraphs: ReaderParagraph[] }>;
@@ -29,7 +30,7 @@ describe('страницы книги', () => {
 
   it('оставляет под заголовком эпизода место минимум для трёх строк', () => {
     const text = `${'предисловие '.repeat(90)}НАЧАЛО ЭПИЗОДА ${'слово '.repeat(80)}`;
-    const scene: ReaderScene = { paintingId: 'p1', paragraphId: 'anchor', endParagraphId: 'anchor', anchorQuote: 'НАЧАЛО ЭПИЗОДА', headingText: 'Сцена', imageSrc: '/thumb.webp', imageAlt: 'Подпись' };
+    const scene: ReaderScene = { paintingId: 'p1', paragraphId: 'anchor', endParagraphId: 'anchor', anchorQuote: 'НАЧАЛО ЭПИЗОДА', headingText: 'Сцена', chapterTitle: 'Глава', sourceText: 'Книга · Глава', imageSrc: '/thumb.webp', imageAlt: 'Подпись' };
     const pages = paginateParagraphs([{ id: 'anchor', text }], 1200, undefined, [scene]);
     const page = pages.find((item) => item.segments.some((segment) => segment.start <= text.indexOf('НАЧАЛО') && segment.end > text.indexOf('НАЧАЛО')));
     expect(page).toBeTruthy();
@@ -40,7 +41,7 @@ describe('страницы книги', () => {
 
   it('каждая связь high/medium картины содержит дословную цитату в опубликованной главе', () => {
     const paintingLinks = links.filter((link) => link.paintingId && ['high', 'medium'].includes(link.confidence));
-    expect(paintingLinks).toHaveLength(31);
+    expect(paintingLinks).toHaveLength(39);
     for (const link of paintingLinks) {
       expect(link.chapterId, `глава связи ${link.paintingId}`).toBeTruthy();
       const chapter = chapters[`../src/data/texts/${link.chapterId}.json`];
@@ -48,8 +49,23 @@ describe('страницы книги', () => {
       const paragraph = chapter.paragraphs.find((item) => item.id === link.paragraphId);
       expect(paragraph?.text, `абзац связи ${link.paintingId}`).toContain(link.quote);
       expect(link.headingText, `заголовок для ${link.paintingId}`).toBeTruthy();
+      expect(['chapter-title', 'verbatim-phrase']).toContain(link.headingSource);
+      expect(link.headingRef).toBe(link.headingSource === 'chapter-title' ? link.chapterId : link.paragraphId);
       expect(link.endParagraphId ?? link.paragraphId).toBe(link.paragraphId);
       expect(paragraph?.text).toContain(link.anchorQuote ?? link.quote);
+    }
+  });
+
+  it('публикует короткие исторические эпизоды с указанными источниками', () => {
+    const excerptBooks = ['karamzin-viii-short-episodes', 'karamzin-ix-short-episodes'];
+    for (const bookId of excerptBooks) {
+      const book = textIndex.books.find((entry) => entry.id === bookId);
+      expect(book?.sourceUrl).toMatch(/^https:\/\/ru\.wikisource\.org\//u);
+    }
+    for (const paintingId of ['p05', 'p10', 'p13', 'p14', 'p22', 'p24', 'p30', 'p34', 'p38', 'p39', 'p40', 'p42', 'p44', 'p48']) {
+      const link = links.find((entry) => entry.paintingId === paintingId);
+      expect(link?.confidence).toBe('medium');
+      expect(link?.quote).toBeTruthy();
     }
   });
 });
