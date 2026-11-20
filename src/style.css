@@ -191,7 +191,7 @@ dialog::backdrop { background:#080607e8;backdrop-filter:none; }
 .dialog-body,.book-pages,.dialog-body p,.spread-content article { font-size:1rem;line-height:1.65; }
 .book-pages { width:min(68ch,100%);min-height:42vh;margin-inline:auto;padding:1rem 1.4rem;color:#30241a;background:#f0e3c9;border:1px solid #ba9b62; }
 .book-pages,.book-pages p { font-size:1.08rem;line-height:1.5; }
-.book-pages p { margin:.5rem 0 1rem; } .book-pages p.is-cited { padding:.35rem .55rem;background:#e4cc94;border-left:4px solid #926a31; }
+.book-pages p { margin:.5rem 0 1rem; }
 .page-turns { display:flex;justify-content:space-between;gap:1rem;margin-top:.8rem; }
 .spread-content { grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:start; }
 .spread-content figure { overflow:hidden;text-align:center; } .spread-content img { display:block;width:100%;max-height:65vh;object-fit:contain;background:#100c0d;transform-origin:center; }
@@ -208,7 +208,7 @@ dialog::backdrop { background:#080607e8;backdrop-filter:none; }
 .reader-status { min-height:1.5em;margin:0;color:#f5ead6;font-size:1.125rem; }
 .reader-page.book-pages { position:relative;width:min(68ch,100%);min-height:42vh;max-height:50vh;overflow:auto;margin:0 auto;padding:1rem 3.25rem;color:#30241a;background:#f0e3c9;border:1px solid #ba9b62;font-size:1.2rem;line-height:1.5; }
 .reader-paragraph { margin:.35rem 0 .9rem;white-space:pre-wrap;overflow-wrap:normal; }
-.reader-paragraph.is-cited { padding:.28rem .48rem;background:#e4cc94;border-left:4px solid #926a31; }
+.scene-heading{display:flex;align-items:center;gap:.85rem;margin:1.2em 0;padding:1.2em .35rem;color:#352319;background:transparent;border-block:1px solid #765a34;font:700 calc(1.375rem * var(--text-scale,1))/1.35 'PT Serif',Georgia,serif}.scene-heading img{flex:none;width:auto;height:64px;max-width:120px;object-fit:contain}.scene-heading span{min-width:0}.reader-paragraph.scene-episode-text{padding-left:.75rem;border-left:2px solid #987542}.scene-episode-text+.scene-episode-text{margin-top:-.6rem}
 .reader-turns { display:flex;align-items:center;justify-content:center;gap:12px;margin-top:12px; }
 .reader-page-number { min-width:10rem;color:#f5ead6;font-size:1.125rem;text-align:center; }
 .reader-side-zones { position:absolute;inset:2.5rem 0 3.5rem;display:flex;justify-content:space-between;pointer-events:none; }

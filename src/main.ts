@@ -52,7 +52,8 @@ function openSpread(p:Painting,heading='Разворот корреспонде�
   gameStore.visitPainting(p.id);
   const link=links.find(item=>item.paintingId===p.id&&item.bookId&&item.chapterId&&item.paragraphId);
   world?.highlightSource(p.id);
-  const view=createSpread({app:app!,painting:p,link,baseUrl:base,textIndex,loadChapter,onReadParagraph:id=>gameStore.readParagraph(id),onClose:()=>world?.highlightSource(null),heading});
+  const scenes=link?links.filter(item=>item.paintingId&&item.bookId===link.bookId&&item.chapterId===link.chapterId&&item.paragraphId&&['high','medium'].includes(item.confidence)).sort((a,b)=>paintings.findIndex(item=>item.id===a.paintingId)-paintings.findIndex(item=>item.id===b.paintingId)).map(item=>{const painting=paintings.find(candidate=>candidate.id===item.paintingId)!;return{paintingId:painting.id,paragraphId:item.paragraphId!,endParagraphId:item.endParagraphId??item.paragraphId!,anchorQuote:item.anchorQuote,headingText:item.headingText??`${painting.title} — ${painting.artist}, ${painting.year}`,imageSrc:`${base}assets/paintings/${painting.thumbnail}`,imageAlt:painting.caption};}):[];
+  const view=createSpread({app:app!,painting:p,link,baseUrl:base,textIndex,loadChapter,scenes,onReadParagraph:id=>gameStore.readParagraph(id),onClose:()=>world?.highlightSource(null),heading});
   showOverlay(view.dialog);
 }
 window.addEventListener('gallery:spread',event=>{const paintingId=(event as CustomEvent<{paintingId:string}>).detail?.paintingId;const painting=paintings.find(item=>item.id===paintingId);if(painting)openSpread(painting);});window.addEventListener('gallery:source',event=>{const link=(event as CustomEvent<PaintingLink>).detail;const dialog=createSourceReader({app:app!,link,textIndex,loadChapter,onReadParagraph:id=>gameStore.readParagraph(id)});if(dialog)openOverlay(dialog);});window.addEventListener('gallery:document',event=>{if((event as CustomEvent<{id:string}>).detail?.id==='repnin-poem')openPoemDocument();});

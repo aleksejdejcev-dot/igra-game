@@ -1,5 +1,5 @@
 import type { Painting, PaintingLink, TextIndex } from './types';
-import { Reader, type ChapterLoader } from './reader';
+import { Reader, type ChapterLoader, type ReaderScene } from './reader';
 
 export interface SpreadOptions {
   app: HTMLElement;
@@ -11,6 +11,7 @@ export interface SpreadOptions {
   onReadParagraph: (paragraphId: string) => void;
   onClose: () => void;
   heading?: string;
+  scenes?: ReaderScene[];
 }
 
 export interface SpreadView { dialog: HTMLDialogElement; reader: Reader | null }
@@ -61,6 +62,7 @@ export function createSpread(options: SpreadOptions): SpreadView {
     reader = new Reader({
       container, index: options.textIndex, bookId: sourceLink.bookId!, chapterId: sourceLink.chapterId!,
       paragraphId: sourceLink.paragraphId!, quote: sourceLink.quote,
+      scenes: options.scenes, targetPaintingId: painting.id,
       loadChapter: options.loadChapter, onReadParagraph: options.onReadParagraph,
     });
   } else {

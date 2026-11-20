@@ -5,6 +5,7 @@ const root = process.cwd();
 const dataRoot = path.join(root, 'src/data');
 const errors: string[] = [];
 const chapterTexts = new Map<string, string>();
+const chapterParagraphOrder = new Map<string, string[]>();
 
 type JsonObject = Record<string, unknown>;
 
@@ -45,6 +46,7 @@ function addChapterParagraphs(chapterId: string, file: string): string[] | null 
     ids.push(paragraph.id);
     chapterTexts.set(paragraph.id, paragraph.text);
   }
+  chapterParagraphOrder.set(chapterId, ids);
   return ids;
 }
 
@@ -235,6 +237,27 @@ if (!Array.isArray(paintings) || !Array.isArray(links)) {
       if (entry.confidence !== 'low' || entry.quote !== '') errors.push(`Связь №${index + 1}: без абзаца допустимы только confidence low и пустая quote.`);
     } else if (typeof entry.quote !== 'string' || entry.quote.length > 200) {
       errors.push(`Связь №${index + 1}: цитата должна быть строкой не длиннее 200 символов.`);
+    }
+    if (typeof entry.paintingId === 'string' && typeof entry.paragraphId === 'string') {
+      if (entry.headingText !== undefined && (typeof entry.headingText !== 'string' || !entry.headingText.trim())) {
+        errors.push(`Связь №${index + 1}: headingText должен быть непустой строкой.`);
+      }
+      const chapterId = typeof entry.chapterId === 'string' ? entry.chapterId : '';
+      const order = chapterParagraphOrder.get(chapterId);
+      const startIndex = order?.indexOf(entry.paragraphId) ?? -1;
+      const endParagraphId = entry.endParagraphId === undefined ? entry.paragraphId : entry.endParagraphId;
+      const endIndex = typeof endParagraphId === 'string' ? order?.indexOf(endParagraphId) ?? -1 : -1;
+      if (typeof endParagraphId !== 'string' || endIndex < 0) {
+        errors.push(`Связь №${index + 1}: endParagraphId ${String(endParagraphId)} отсутствует в главе ${chapterId}.`);
+      } else if (startIndex < 0 || endIndex < startIndex) {
+        errors.push(`Связь №${index + 1}: endParagraphId должен быть в той же главе и не раньше paragraphId.`);
+      }
+      if (entry.anchorQuote !== undefined) {
+        const text = chapterTexts.get(entry.paragraphId);
+        if (typeof entry.anchorQuote !== 'string' || !entry.anchorQuote.trim() || !text?.includes(entry.anchorQuote)) {
+          errors.push(`Связь №${index + 1}: anchorQuote отсутствует в абзаце ${entry.paragraphId}.`);
+        }
+      }
     }
   }
   for (const painting of paintings.filter(isObject)) {

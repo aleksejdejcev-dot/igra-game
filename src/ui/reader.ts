@@ -5,11 +5,21 @@ export interface ReaderChapter { id: string; title?: string; paragraphs: ReaderP
 export type ChapterLoader = (chapterId: string) => Promise<ReaderChapter | null>;
 interface PageSegment { paragraphId: string; text: string; start: number; end: number }
 export interface ReaderPage { segments: PageSegment[]; length: number }
+export interface ReaderScene {
+  paintingId: string;
+  paragraphId: string;
+  endParagraphId: string;
+  anchorQuote?: string;
+  headingText: string;
+  imageSrc: string;
+  imageAlt: string;
+}
 
 export function paginateParagraphs(
   paragraphs: ReaderParagraph[],
   limit = 1200,
   anchor?: { paragraphId: string; quote: string },
+  scenes: ReaderScene[] = [],
 ): ReaderPage[] {
   const pages: ReaderPage[] = [];
   let page: ReaderPage = { segments: [], length: 0 };
@@ -18,15 +28,30 @@ export function paginateParagraphs(
     pages.push(page);
     page = { segments: [], length: 0 };
   };
+  let documentOffset = 0;
+  let protectedUntil = -1;
   for (const paragraph of paragraphs) {
     const words = paragraph.text.match(/\S+\s*/gu) ?? [];
     let offset = 0;
     const quoteStart = paragraph.id === anchor?.paragraphId ? paragraph.text.indexOf(anchor.quote) : -1;
     const quoteEnd = quoteStart < 0 ? -1 : quoteStart + anchor!.quote.length;
+    const sceneOffsets = scenes.filter((scene) => scene.paragraphId === paragraph.id).map((scene) => {
+      const index = scene.anchorQuote ? paragraph.text.indexOf(scene.anchorQuote) : 0;
+      return index < 0 ? 0 : index;
+    });
+    // Несколько полотен одной сцены получают подряд стоящие заголовки у её первого якоря.
+    const sceneStarts = sceneOffsets.length ? [Math.min(...sceneOffsets)] : [];
     for (const word of words) {
+      while (sceneStarts.some((sceneStart) => sceneStart >= offset && sceneStart < offset + word.length)) {
+        const sceneStart = sceneStarts.find((candidate) => candidate >= offset && candidate < offset + word.length)!;
+        if (page.length > 0 && limit - page.length < 260) flush();
+        protectedUntil = Math.max(protectedUntil, documentOffset + sceneStart + 180);
+        sceneStarts.splice(sceneStarts.indexOf(sceneStart), 1);
+      }
       const last = page.segments.at(-1);
       const insideAnchorQuote = quoteStart >= 0 && last?.paragraphId === paragraph.id && last.end > quoteStart && offset < quoteEnd;
-      if (page.length > 0 && page.length + word.length > limit && !insideAnchorQuote) flush();
+      const insideSceneLead = documentOffset + offset < protectedUntil;
+      if (page.length > 0 && page.length + word.length > limit && !insideAnchorQuote && !insideSceneLead) flush();
       const previous = page.segments.at(-1);
       if (previous?.paragraphId === paragraph.id && previous.end === offset) {
         previous.text += word;
@@ -42,6 +67,7 @@ export function paginateParagraphs(
       page.segments.push({ paragraphId: paragraph.id, text: paragraph.text, start: 0, end: paragraph.text.length });
       page.length += paragraph.text.length;
     }
+    documentOffset += paragraph.text.length + 1;
   }
   flush();
   return pages;
@@ -54,6 +80,8 @@ export interface ReaderOptions {
   chapterId: string;
   paragraphId: string;
   quote: string;
+  scenes?: ReaderScene[];
+  targetPaintingId?: string;
   loadChapter: ChapterLoader;
   onReadParagraph: (paragraphId: string) => void;
 }
@@ -152,14 +180,31 @@ export class Reader {
     if (!data) { this.status.textContent = 'Не удалось открыть главу.'; this.updateNavigation(); return; }
     this.chapterPosition = position;
     this.chapter = data;
-    this.pages = paginateParagraphs(data.paragraphs, 1200, { paragraphId: this.options.paragraphId, quote: this.options.quote });
+    this.pages = paginateParagraphs(data.paragraphs, 1200, { paragraphId: this.options.paragraphId, quote: this.options.quote }, this.options.scenes);
     if (direction < 0) this.pagePosition = Math.max(0, this.pages.length - 1);
     else if (direction > 0) this.pagePosition = 0;
     else this.pagePosition = this.findAnchorPage(paragraphId, this.options.quote);
     this.heading.textContent = `${this.book?.title ?? this.options.bookId} · ${chapterMeta.title || data.title || ''}`;
     this.status.textContent = '';
     this.renderPage();
-    if (direction === 0) this.pageNode.querySelector<HTMLElement>('.reader-paragraph.is-cited')?.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' });
+    if (direction === 0) {
+      const target = this.options.targetPaintingId
+        ? this.pageNode.querySelector<HTMLElement>(`[data-scene-painting="${CSS.escape(this.options.targetPaintingId)}"]`)
+        : this.pageNode.querySelector<HTMLElement>('.scene-heading');
+      if (target) {
+        const start = this.pageNode.scrollTop;
+        const finish = Math.max(0, target.offsetTop + target.offsetHeight / 2 - this.pageNode.clientHeight / 2);
+        const began = performance.now();
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const animate = (now: number): void => {
+          const progress = reduceMotion ? 1 : Math.min(1, (now - began) / 400);
+          const eased = progress * progress * (3 - 2 * progress);
+          this.pageNode.scrollTop = start + (finish - start) * eased;
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+      }
+    }
   }
 
   private findAnchorPage(paragraphId: string, quote: string): number {
@@ -173,13 +218,56 @@ export class Reader {
   private renderPage(): void {
     this.pageNode.replaceChildren();
     const page = this.pages[this.pagePosition];
+    const paragraphs = this.chapter?.paragraphs ?? [];
+    const paragraphPositions = new Map(paragraphs.map((paragraph, index) => [paragraph.id, index]));
+    const sceneStart = (scene: ReaderScene): number => {
+      const paragraph = paragraphs.find((item) => item.id === scene.paragraphId);
+      const found = scene.anchorQuote && paragraph ? paragraph.text.indexOf(scene.anchorQuote) : 0;
+      return found < 0 ? 0 : found;
+    };
+    const appendSceneHeading = (scene: ReaderScene): void => {
+      const heading = document.createElement('h3');
+      heading.className = 'scene-heading';
+      heading.dataset.scenePainting = scene.paintingId;
+      const image = document.createElement('img');
+      image.src = scene.imageSrc;
+      image.alt = scene.imageAlt;
+      image.loading = 'lazy';
+      const text = document.createElement('span');
+      text.textContent = scene.headingText;
+      heading.append(image, text);
+      this.pageNode.append(heading);
+    };
     for (const segment of page?.segments ?? []) {
-      const paragraph = document.createElement('p');
-      paragraph.className = 'reader-paragraph';
-      paragraph.dataset.paragraphId = segment.paragraphId;
-      paragraph.textContent = segment.text;
-      paragraph.classList.toggle('is-cited', segment.paragraphId === this.options.paragraphId);
-      this.pageNode.append(paragraph);
+      const sourceParagraph = paragraphs.find((item) => item.id === segment.paragraphId);
+      const paragraphScenes = (this.options.scenes ?? []).filter((scene) => scene.paragraphId === segment.paragraphId);
+      const headingOffset = paragraphScenes.length ? Math.min(...paragraphScenes.map(sceneStart)) : -1;
+      const starts = paragraphScenes.map((scene) => ({ scene, offset: headingOffset }))
+        .filter(({ offset }) => offset >= segment.start && offset < segment.end);
+      const boundaries = [...new Set(starts.map((item) => item.offset)), segment.end].sort((a, b) => a - b);
+      let cursor = segment.start;
+      const appendText = (from: number, to: number): void => {
+        if (to <= from) return;
+        const paragraph = document.createElement('p');
+        paragraph.className = 'reader-paragraph';
+        paragraph.dataset.paragraphId = segment.paragraphId;
+        paragraph.textContent = sourceParagraph?.text.slice(from, to) ?? segment.text.slice(from - segment.start, to - segment.start);
+        const currentPosition = paragraphPositions.get(segment.paragraphId) ?? -1;
+        const inEpisode = (this.options.scenes ?? []).some((scene) => {
+          const startPosition = paragraphPositions.get(scene.paragraphId) ?? -1;
+          const endPosition = paragraphPositions.get(scene.endParagraphId) ?? startPosition;
+          return currentPosition >= startPosition && currentPosition <= endPosition
+            && (currentPosition > startPosition || from >= sceneStart(scene));
+        });
+        paragraph.classList.toggle('scene-episode-text', inEpisode);
+        this.pageNode.append(paragraph);
+      };
+      for (const boundary of boundaries) {
+        appendText(cursor, boundary);
+        for (const { scene } of starts.filter((item) => item.offset === boundary)) appendSceneHeading(scene);
+        cursor = boundary;
+      }
+      appendText(cursor, segment.end);
       this.options.onReadParagraph(segment.paragraphId);
     }
     this.pageNumber.textContent = this.pages.length ? `Страница ${this.pagePosition + 1} из ${this.pages.length}` : '';

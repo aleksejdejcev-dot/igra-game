@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { readFileSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 
 test.use({ deviceScaleFactor: 2 });
 const save = JSON.stringify({ player: { name: 'Корреспондент' }, unlockedHalls: ['h01'], solvedTasks: {}, totalScore: 0, visitedPaintings: [], readParagraphs: [] });
@@ -18,24 +18,47 @@ test('разворот показывает источники, листаетс
   await page.locator('.spread-dialog .icon-button').click();
   await expect(page.locator('.spread-dialog')).toHaveCount(0);
 
-  const links = JSON.parse(readFileSync(new URL('../src/data/links.json', import.meta.url), 'utf8')) as { paintingId?: string; confidence: string; chapterId: string | null; paragraphId: string | null; quote: string }[];
+  const links = JSON.parse(readFileSync(new URL('../src/data/links.json', import.meta.url), 'utf8')) as { paintingId?: string; confidence: string; chapterId: string | null; paragraphId: string | null; quote: string; headingText?: string; anchorQuote?: string }[];
   const candidates = links.filter((link) => link.paintingId && ['high', 'medium'].includes(link.confidence) && link.chapterId && link.paragraphId && link.quote);
   expect(candidates.length).toBeGreaterThan(0);
-  for (const link of candidates) {
+  mkdirSync('tools/shots/scene-heading', { recursive: true });
+  for (const [candidateIndex, link] of candidates.entries()) {
     await page.evaluate((paintingId) => window.__WORLD_TEST__!.interact('painting', paintingId), link.paintingId!);
     const dialog = page.locator('.spread-dialog').last();
     await expect(dialog).toBeVisible();
     await expect(dialog.locator('.reader-page')).toContainText(link.quote);
-    await expect(dialog.locator('.reader-paragraph.is-cited')).toHaveAttribute('data-paragraph-id', link.paragraphId!);
+    const sceneHeading = dialog.locator(`.scene-heading[data-scene-painting="${link.paintingId}"]`);
+    await expect(sceneHeading).toHaveCount(1);
+    await expect(sceneHeading).toHaveText(link.headingText!);
+    const quoteFollowsHeading = await dialog.locator('.reader-page').evaluate((pageNode, quote) => {
+      const children = [...pageNode.children];
+      const headingIndex = children.findIndex((child) => child.matches('.scene-heading'));
+      return headingIndex >= 0 && children.slice(headingIndex + 1).map((child) => child.textContent ?? '').join(' ').includes(quote as string);
+    }, link.quote);
+    expect(quoteFollowsHeading).toBe(true);
+    const sameSceneLinks = links.filter((scene) => ['high', 'medium'].includes(scene.confidence) && scene.chapterId === link.chapterId && scene.paragraphId === link.paragraphId && scene.paintingId)
+      .sort((a, b) => Number(a.paintingId?.slice(1)) - Number(b.paintingId?.slice(1)));
+    if (sameSceneLinks.length > 1) {
+      const headingsInOrder = await dialog.locator('.reader-page').evaluate((pageNode) => [...pageNode.querySelectorAll<HTMLElement>('.scene-heading')].map((heading) => heading.dataset.scenePainting));
+      const expectedIds = sameSceneLinks.map((scene) => scene.paintingId);
+      const positions = expectedIds.map((id) => headingsInOrder.indexOf(id));
+      expect(positions.every((position) => position >= 0)).toBe(true);
+      expect(positions).toEqual([...positions].sort((a, b) => a - b));
+      expect(positions.at(-1)! - positions[0]).toBe(expectedIds.length - 1);
+    }
     await expect(dialog.locator('.spread-caption')).not.toBeEmpty();
     expect(await page.evaluate((id) => JSON.parse(localStorage.getItem('closed-exhibition-1898:save-v1')!).readParagraphs.includes(id), link.paragraphId!)).toBe(true);
+    if (candidateIndex < 5) {
+      await page.waitForTimeout(450);
+      await page.screenshot({ path: `tools/shots/scene-heading/${link.paintingId}.png` });
+    }
     if (link.paintingId === 'p45') {
       const initialChapter = await dialog.locator('.reader-heading').textContent();
       for (let turn = 0; turn < 20; turn += 1) {
         const number = await dialog.locator('.reader-page-number').textContent() ?? '';
         const page = /Страница (\d+) из (\d+)/u.exec(number);
         if (page && Number(page[1]) === Number(page[2])) break;
-        // При длинных главах прокрутка подсвеченного абзаца может сдвигать
+        // При длинных главах прокрутка заголовка эпизода может сдвигать
         // навигацию; отправляем обычное событие кнопки без ожидания layout-stable.
         await dialog.locator('.next-page').click({ force: true });
         await expect.poll(() => dialog.locator('.reader-page-number').textContent()).not.toBe(number);
@@ -45,7 +68,7 @@ test('разворот показывает источники, листаетс
     }
     if (link.paintingId === 'p36') {
       const textClearance = await dialog.evaluate((element) => {
-        const paragraph = element.querySelector<HTMLElement>('.reader-paragraph.is-cited')!.getBoundingClientRect();
+        const paragraph = element.querySelector<HTMLElement>('.scene-heading')!.getBoundingClientRect();
         const left = element.querySelector<HTMLElement>('.reader-edge-left')!.getBoundingClientRect();
         const right = element.querySelector<HTMLElement>('.reader-edge-right')!.getBoundingClientRect();
         return paragraph.left >= left.right && paragraph.right <= right.left;
@@ -71,10 +94,28 @@ test('разворот показывает источники, листаетс
       await dialog.locator('.previous-page').click();
       await expect(dialog.locator('.reader-page')).toContainText(link.quote);
     }
-    await dialog.locator('.icon-button').click();
+    await dialog.evaluate((element) => (element as HTMLDialogElement).close());
     await expect(page.locator('.spread-dialog')).toHaveCount(0);
   }
 
+  const responsiveLink = candidates.find((link) => link.paintingId === 'p08')!;
+  for (const viewport of [{ width: 1280, height: 800 }, { width: 1024, height: 768 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(viewport);
+    await page.evaluate((paintingId) => window.__WORLD_TEST__!.interact('painting', paintingId), responsiveLink.paintingId!);
+    const dialog = page.locator('.spread-dialog').last();
+    await expect(dialog.locator(`.scene-heading[data-scene-painting="${responsiveLink.paintingId}"]`)).toHaveCount(1);
+    await expect(dialog.locator('.reader-page')).toContainText(responsiveLink.quote);
+    const leadLines = await dialog.locator('.reader-page').evaluate((pageNode, paintingId) => {
+      const headings = [...pageNode.querySelectorAll<HTMLElement>('.scene-heading')];
+      const index = headings.findIndex((heading) => heading.dataset.scenePainting === paintingId);
+      return pageNode.textContent?.slice(pageNode.textContent.indexOf(headings[index]?.textContent ?? '') + (headings[index]?.textContent?.length ?? 0)).trim().length ?? 0;
+    }, responsiveLink.paintingId!);
+    expect(leadLines).toBeGreaterThanOrEqual(180);
+    await dialog.evaluate((element) => (element as HTMLDialogElement).close());
+    await expect(page.locator('.spread-dialog')).toHaveCount(0);
+  }
+
+  await page.setViewportSize({ width: 1280, height: 800 });
   await page.evaluate(() => {
     const canvas = document.querySelector<HTMLCanvasElement>('.gallery-canvas')!;
     let locked = true;
